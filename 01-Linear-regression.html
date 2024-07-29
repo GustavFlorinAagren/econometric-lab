@@ -197,7 +197,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-Logit-probit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">02-Logit-probit.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logit and probit (and maybe tobit)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -288,10 +288,9 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#assignment-1-gustav-florin-ågren-december-2023" id="toc-assignment-1-gustav-florin-ågren-december-2023" class="nav-link active" data-scroll-target="#assignment-1-gustav-florin-ågren-december-2023"><span class="header-section-number">2.1</span> Assignment 1 Gustav Florin Ågren December 2023</a></li>
-  <li><a href="#the-boston-data-set" id="toc-the-boston-data-set" class="nav-link" data-scroll-target="#the-boston-data-set"><span class="header-section-number">2.2</span> The boston data set</a></li>
-  <li><a href="#predict-per-capita-crime-rate-using-best-subset-selection" id="toc-predict-per-capita-crime-rate-using-best-subset-selection" class="nav-link" data-scroll-target="#predict-per-capita-crime-rate-using-best-subset-selection"><span class="header-section-number">2.3</span> Predict per capita crime rate using best subset selection</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2.4</span> References</a></li>
+  <li><a href="#the-boston-data-set" id="toc-the-boston-data-set" class="nav-link active" data-scroll-target="#the-boston-data-set"><span class="header-section-number">2.1</span> The boston data set</a></li>
+  <li><a href="#predict-per-capita-crime-rate-using-best-subset-selection" id="toc-predict-per-capita-crime-rate-using-best-subset-selection" class="nav-link" data-scroll-target="#predict-per-capita-crime-rate-using-best-subset-selection"><span class="header-section-number">2.2</span> Predict per capita crime rate using best subset selection</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2.3</span> References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/GustavFlorinAagren/econometric-lab/edit/main/01-Linear-regression.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/GustavFlorinAagren/econometric-lab/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -317,40 +316,35 @@ window.Quarto = {
 </header>
 
 
-<p>We do rigorous quantitative science to support decision-making for living marine resource management. We conduct our work using Open Data Science principles, emphasizing scientific excellence (not perfection) that is transparent, reproducible, collaborative, and ethical. We aim to make our methods and results available and support ongoing learning.<br>
-Our quantitative work is based on statistical thinking, using evidence-based approaches to compare among alternatives for models and management options.</p>
-<section id="assignment-1-gustav-florin-ågren-december-2023" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="assignment-1-gustav-florin-ågren-december-2023"><span class="header-section-number">2.1</span> Assignment 1 Gustav Florin Ågren December 2023</h2>
-<p>This is a report trying to examine and fit the data set Boston.</p>
-</section>
-<section id="the-boston-data-set" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="the-boston-data-set"><span class="header-section-number">2.2</span> The boston data set</h2>
-<p>The data set which this report will make use of contains information collected by the U.S. Census Service concerning housing and crime rates in Boston (ref: <a href="https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html" class="uri">https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html</a>).</p>
+<p>Linear regression is a simple and widely used statistical technique for modelling the relationship between a dependent variable and one or more independent variables. In this review, we will discuss the basics of linear regression, how to fit a linear regression model to a data set and how it can be used for prediction.</p>
+<section id="the-boston-data-set" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-boston-data-set"><span class="header-section-number">2.1</span> The boston data set</h2>
+<p>This section will make use of the data set Boston. It contains information collected by the U.S. Census Service concerning housing and crime rates in Boston (ref: <a href="https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html" class="uri">https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html</a>).</p>
 <p>The variables in the data set are:<br>
-(create table of all variables and short description of them)</p>
+</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the table using gt</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>variable_descriptions <span class="sc">%&gt;%</span> </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="st">"Variables"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="klzmqaynjk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#klzmqaynjk table {
+<div id="hoizsacnao" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hoizsacnao table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#klzmqaynjk thead, #klzmqaynjk tbody, #klzmqaynjk tfoot, #klzmqaynjk tr, #klzmqaynjk td, #klzmqaynjk th {
+#hoizsacnao thead, #hoizsacnao tbody, #hoizsacnao tfoot, #hoizsacnao tr, #hoizsacnao td, #hoizsacnao th {
   border-style: none;
 }
 
-#klzmqaynjk p {
+#hoizsacnao p {
   margin: 0;
   padding: 0;
 }
 
-#klzmqaynjk .gt_table {
+#hoizsacnao .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -376,12 +370,12 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   border-left-color: #D3D3D3;
 }
 
-#klzmqaynjk .gt_caption {
+#hoizsacnao .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#klzmqaynjk .gt_title {
+#hoizsacnao .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -393,7 +387,7 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   border-bottom-width: 0;
 }
 
-#klzmqaynjk .gt_subtitle {
+#hoizsacnao .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -405,7 +399,7 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   border-top-width: 0;
 }
 
-#klzmqaynjk .gt_heading {
+#hoizsacnao .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -417,13 +411,13 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   border-right-color: #D3D3D3;
 }
 
-#klzmqaynjk .gt_bottom_border {
+#hoizsacnao .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#klzmqaynjk .gt_col_headings {
+#hoizsacnao .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -438,7 +432,7 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   border-right-color: #D3D3D3;
 }
 
-#klzmqaynjk .gt_col_heading {
+#hoizsacnao .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -458,7 +452,7 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   overflow-x: hidden;
 }
 
-#klzmqaynjk .gt_column_spanner_outer {
+#hoizsacnao .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -470,15 +464,15 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   padding-right: 4px;
 }
 
-#klzmqaynjk .gt_column_spanner_outer:first-child {
+#hoizsacnao .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#klzmqaynjk .gt_column_spanner_outer:last-child {
+#hoizsacnao .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#klzmqaynjk .gt_column_spanner {
+#hoizsacnao .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -490,11 +484,11 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   width: 100%;
 }
 
-#klzmqaynjk .gt_spanner_row {
+#hoizsacnao .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#klzmqaynjk .gt_group_heading {
+#hoizsacnao .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -520,7 +514,7 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   text-align: left;
 }
 
-#klzmqaynjk .gt_empty_group_heading {
+#hoizsacnao .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -535,15 +529,15 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   vertical-align: middle;
 }
 
-#klzmqaynjk .gt_from_md > :first-child {
+#hoizsacnao .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#klzmqaynjk .gt_from_md > :last-child {
+#hoizsacnao .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#klzmqaynjk .gt_row {
+#hoizsacnao .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -562,7 +556,7 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   overflow-x: hidden;
 }
 
-#klzmqaynjk .gt_stub {
+#hoizsacnao .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -575,7 +569,7 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   padding-right: 5px;
 }
 
-#klzmqaynjk .gt_stub_row_group {
+#hoizsacnao .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -589,15 +583,15 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   vertical-align: top;
 }
 
-#klzmqaynjk .gt_row_group_first td {
+#hoizsacnao .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#klzmqaynjk .gt_row_group_first th {
+#hoizsacnao .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#klzmqaynjk .gt_summary_row {
+#hoizsacnao .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -607,16 +601,16 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   padding-right: 5px;
 }
 
-#klzmqaynjk .gt_first_summary_row {
+#hoizsacnao .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#klzmqaynjk .gt_first_summary_row.thick {
+#hoizsacnao .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#klzmqaynjk .gt_last_summary_row {
+#hoizsacnao .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -626,7 +620,7 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   border-bottom-color: #D3D3D3;
 }
 
-#klzmqaynjk .gt_grand_summary_row {
+#hoizsacnao .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -636,7 +630,7 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   padding-right: 5px;
 }
 
-#klzmqaynjk .gt_first_grand_summary_row {
+#hoizsacnao .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -646,7 +640,7 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   border-top-color: #D3D3D3;
 }
 
-#klzmqaynjk .gt_last_grand_summary_row_top {
+#hoizsacnao .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -656,11 +650,11 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   border-bottom-color: #D3D3D3;
 }
 
-#klzmqaynjk .gt_striped {
+#hoizsacnao .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#klzmqaynjk .gt_table_body {
+#hoizsacnao .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -669,7 +663,7 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   border-bottom-color: #D3D3D3;
 }
 
-#klzmqaynjk .gt_footnotes {
+#hoizsacnao .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -683,7 +677,7 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   border-right-color: #D3D3D3;
 }
 
-#klzmqaynjk .gt_footnote {
+#hoizsacnao .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -692,7 +686,7 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   padding-right: 5px;
 }
 
-#klzmqaynjk .gt_sourcenotes {
+#hoizsacnao .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -706,7 +700,7 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   border-right-color: #D3D3D3;
 }
 
-#klzmqaynjk .gt_sourcenote {
+#hoizsacnao .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -714,63 +708,63 @@ Our quantitative work is based on statistical thinking, using evidence-based app
   padding-right: 5px;
 }
 
-#klzmqaynjk .gt_left {
+#hoizsacnao .gt_left {
   text-align: left;
 }
 
-#klzmqaynjk .gt_center {
+#hoizsacnao .gt_center {
   text-align: center;
 }
 
-#klzmqaynjk .gt_right {
+#hoizsacnao .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#klzmqaynjk .gt_font_normal {
+#hoizsacnao .gt_font_normal {
   font-weight: normal;
 }
 
-#klzmqaynjk .gt_font_bold {
+#hoizsacnao .gt_font_bold {
   font-weight: bold;
 }
 
-#klzmqaynjk .gt_font_italic {
+#hoizsacnao .gt_font_italic {
   font-style: italic;
 }
 
-#klzmqaynjk .gt_super {
+#hoizsacnao .gt_super {
   font-size: 65%;
 }
 
-#klzmqaynjk .gt_footnote_marks {
+#hoizsacnao .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#klzmqaynjk .gt_asterisk {
+#hoizsacnao .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#klzmqaynjk .gt_indent_1 {
+#hoizsacnao .gt_indent_1 {
   text-indent: 5px;
 }
 
-#klzmqaynjk .gt_indent_2 {
+#hoizsacnao .gt_indent_2 {
   text-indent: 10px;
 }
 
-#klzmqaynjk .gt_indent_3 {
+#hoizsacnao .gt_indent_3 {
   text-indent: 15px;
 }
 
-#klzmqaynjk .gt_indent_4 {
+#hoizsacnao .gt_indent_4 {
   text-indent: 20px;
 }
 
-#klzmqaynjk .gt_indent_5 {
+#hoizsacnao .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -845,8 +839,8 @@ Our quantitative work is based on statistical thinking, using evidence-based app
 </div>
 </div>
 </section>
-<section id="predict-per-capita-crime-rate-using-best-subset-selection" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="predict-per-capita-crime-rate-using-best-subset-selection"><span class="header-section-number">2.3</span> Predict per capita crime rate using best subset selection</h2>
+<section id="predict-per-capita-crime-rate-using-best-subset-selection" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="predict-per-capita-crime-rate-using-best-subset-selection"><span class="header-section-number">2.2</span> Predict per capita crime rate using best subset selection</h2>
 <p>We will now try to predict the per capita crime rate using best subset selection. We will first split the data into a training set and a test set. We will then fit a separate least squares regression to the training set for each possible combination of the 13 predictors. Then, we will use the <code>regsubsets()</code> function from the <code>leaps</code> library to perform best subset selection.</p>
 <p>Because there is no <code>predict()</code> method for <code>regsubsets()</code> we have to create the same function ourselves. This function takes in the <code>regsubsets</code> object and the data set, and returns the predictions for the best model.</p>
 <div class="cell">
@@ -1534,8 +1528,8 @@ Our quantitative work is based on statistical thinking, using evidence-based app
 </div>
 <p>Using the best subset selection, we have been able to reduce ourselves to fewer predictors. The model with the 11 best predictors has an adjusted <span class="math inline">\(R^2\)</span> of 0.63, which is higher than the model with all predictors. Still, it’s not a very efficient model in the sense that it has many variables. More ways to reduce the number of predictors could be to use ridge regression or lasso regression. More about this in the machine learning section.</p>
 </section>
-<section id="references" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="references"><span class="header-section-number">2.4</span> References</h2>
+<section id="references" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="references"><span class="header-section-number">2.3</span> References</h2>
 
 
 </section>
@@ -1957,8 +1951,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-Logit-probit.html" class="pagination-link" aria-label="02-Logit-probit.html">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">02-Logit-probit.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-Logit-probit.html" class="pagination-link" aria-label="Logit and probit (and maybe tobit)">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logit and probit (and maybe tobit)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
