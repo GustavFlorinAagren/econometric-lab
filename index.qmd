@@ -23,6 +23,8 @@ This is a portfolio of my work in econometrics. The site will be updated as I co
      Tree-based methods (e.g. Random forest)\
      Support vector machine\
 
+Enjoy!
+
 This is the lab manual for the Fay Lab at the University of Massachusetts Dartmouth School for Marine Science and Technology.\
 The focus of our work centers around developing interdisciplinary modeling approaches to extend the scope of applications for fisheries and ecosystem-based management. More about our group's research activity can be found on our [website](https://thefaylab.com).
 
