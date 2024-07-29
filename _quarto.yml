@@ -9,8 +9,6 @@ book:
   description: "This is the portfolio of econometric and statistic reviews by Gustav Florin Ågren" 
   
   page-footer:
-    left: |
-      <a href="http://www.smast.umassd.edu/lab_fay/">The Fay lab</a>
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
   site-url: https://gustavflorinaagren.github.io/econometric-lab/
