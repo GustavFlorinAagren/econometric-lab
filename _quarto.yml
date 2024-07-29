@@ -3,7 +3,7 @@ project:
   output-dir: _book
   
 book:
-  title: "Econometrics Laboratory"
+  title: "Econometrics Lab"
   author: "Gustav Florin Ågren"
   date: last-modified 
   description: "This is the portfolio of econometric and statistic reviews by Gustav Florin Ågren" 
