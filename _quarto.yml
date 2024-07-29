@@ -1,6 +1,6 @@
 project: 
-  type: book
-  output-dir: _book
+  type: site
+  output-dir: _site
   
 book:
   title: "Econometrics Lab"
