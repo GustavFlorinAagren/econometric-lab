@@ -237,16 +237,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#survival-analysis" id="toc-survival-analysis" class="nav-link active" data-scroll-target="#survival-analysis"><span class="header-section-number">15</span> Survival analysis</a>
+  <li><a href="#packages-and-data" id="toc-packages-and-data" class="nav-link active" data-scroll-target="#packages-and-data"><span class="header-section-number">14.1</span> Packages and data</a></li>
+  <li><a href="#kaplan-meier-and-non-parametric-tests" id="toc-kaplan-meier-and-non-parametric-tests" class="nav-link" data-scroll-target="#kaplan-meier-and-non-parametric-tests"><span class="header-section-number">14.2</span> Kaplan-Meier and non-parametric tests</a></li>
+  <li><a href="#cox-proportional-hazards-model" id="toc-cox-proportional-hazards-model" class="nav-link" data-scroll-target="#cox-proportional-hazards-model"><span class="header-section-number">14.3</span> Cox proportional hazards model</a>
   <ul class="collapse">
-  <li><a href="#packages-and-data" id="toc-packages-and-data" class="nav-link" data-scroll-target="#packages-and-data"><span class="header-section-number">15.1</span> Packages and data</a></li>
-  <li><a href="#kaplan-meier-and-non-parametric-tests" id="toc-kaplan-meier-and-non-parametric-tests" class="nav-link" data-scroll-target="#kaplan-meier-and-non-parametric-tests"><span class="header-section-number">15.2</span> Kaplan-Meier and non-parametric tests</a></li>
-  <li><a href="#cox-proportional-hazards-model" id="toc-cox-proportional-hazards-model" class="nav-link" data-scroll-target="#cox-proportional-hazards-model"><span class="header-section-number">15.3</span> Cox proportional hazards model</a>
-  <ul class="collapse">
-  <li><a href="#cox-proportional-hazards-model-assumptions" id="toc-cox-proportional-hazards-model-assumptions" class="nav-link" data-scroll-target="#cox-proportional-hazards-model-assumptions"><span class="header-section-number">15.3.1</span> Cox proportional hazards model assumptions</a></li>
+  <li><a href="#cox-proportional-hazards-model-assumptions" id="toc-cox-proportional-hazards-model-assumptions" class="nav-link" data-scroll-target="#cox-proportional-hazards-model-assumptions"><span class="header-section-number">14.3.1</span> Cox proportional hazards model assumptions</a></li>
   </ul></li>
-  <li><a href="#competing-risks-analysis" id="toc-competing-risks-analysis" class="nav-link" data-scroll-target="#competing-risks-analysis"><span class="header-section-number">15.4</span> Competing risks analysis</a></li>
-  </ul></li>
+  <li><a href="#competing-risks-analysis" id="toc-competing-risks-analysis" class="nav-link" data-scroll-target="#competing-risks-analysis"><span class="header-section-number">14.4</span> Competing risks analysis</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/GustavFlorinAagren/econometric-lab/edit/main/13-survival-analysis.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/GustavFlorinAagren/econometric-lab/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -272,13 +269,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="survival-analysis" class="level1" data-number="15">
-<h1 data-number="15"><span class="header-section-number">15</span> Survival analysis</h1>
-<p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
-<section id="packages-and-data" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="packages-and-data"><span class="header-section-number">15.1</span> Packages and data</h2>
+<section id="packages-and-data" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="packages-and-data"><span class="header-section-number">14.1</span> Packages and data</h2>
 <p>For this we need the following packages and data</p>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># | echo: false</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># | output: false</span></span>
@@ -316,23 +309,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The data used in this review is simulated data from 14,294 prostate cancer patients from Lu-Yao et al.&nbsp;study <a href="https://quarto.org" class="uri">https://quarto.org</a> (DOI:10.1001/jama.2009.1348). It has the following five variables:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="zktbhjnnhk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zktbhjnnhk table {
+<div id="vqtfcwgwfi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vqtfcwgwfi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zktbhjnnhk thead, #zktbhjnnhk tbody, #zktbhjnnhk tfoot, #zktbhjnnhk tr, #zktbhjnnhk td, #zktbhjnnhk th {
+#vqtfcwgwfi thead, #vqtfcwgwfi tbody, #vqtfcwgwfi tfoot, #vqtfcwgwfi tr, #vqtfcwgwfi td, #vqtfcwgwfi th {
   border-style: none;
 }
 
-#zktbhjnnhk p {
+#vqtfcwgwfi p {
   margin: 0;
   padding: 0;
 }
 
-#zktbhjnnhk .gt_table {
+#vqtfcwgwfi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -358,12 +351,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#zktbhjnnhk .gt_caption {
+#vqtfcwgwfi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zktbhjnnhk .gt_title {
+#vqtfcwgwfi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -375,7 +368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#zktbhjnnhk .gt_subtitle {
+#vqtfcwgwfi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -387,7 +380,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#zktbhjnnhk .gt_heading {
+#vqtfcwgwfi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -399,13 +392,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#zktbhjnnhk .gt_bottom_border {
+#vqtfcwgwfi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zktbhjnnhk .gt_col_headings {
+#vqtfcwgwfi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -420,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#zktbhjnnhk .gt_col_heading {
+#vqtfcwgwfi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -440,7 +433,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#zktbhjnnhk .gt_column_spanner_outer {
+#vqtfcwgwfi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -452,15 +445,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#zktbhjnnhk .gt_column_spanner_outer:first-child {
+#vqtfcwgwfi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zktbhjnnhk .gt_column_spanner_outer:last-child {
+#vqtfcwgwfi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zktbhjnnhk .gt_column_spanner {
+#vqtfcwgwfi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -472,11 +465,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#zktbhjnnhk .gt_spanner_row {
+#vqtfcwgwfi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zktbhjnnhk .gt_group_heading {
+#vqtfcwgwfi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -502,7 +495,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#zktbhjnnhk .gt_empty_group_heading {
+#vqtfcwgwfi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -517,15 +510,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#zktbhjnnhk .gt_from_md > :first-child {
+#vqtfcwgwfi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zktbhjnnhk .gt_from_md > :last-child {
+#vqtfcwgwfi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zktbhjnnhk .gt_row {
+#vqtfcwgwfi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -544,7 +537,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#zktbhjnnhk .gt_stub {
+#vqtfcwgwfi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -557,7 +550,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#zktbhjnnhk .gt_stub_row_group {
+#vqtfcwgwfi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -571,15 +564,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#zktbhjnnhk .gt_row_group_first td {
+#vqtfcwgwfi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zktbhjnnhk .gt_row_group_first th {
+#vqtfcwgwfi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zktbhjnnhk .gt_summary_row {
+#vqtfcwgwfi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -589,16 +582,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#zktbhjnnhk .gt_first_summary_row {
+#vqtfcwgwfi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zktbhjnnhk .gt_first_summary_row.thick {
+#vqtfcwgwfi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zktbhjnnhk .gt_last_summary_row {
+#vqtfcwgwfi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -608,7 +601,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#zktbhjnnhk .gt_grand_summary_row {
+#vqtfcwgwfi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -618,7 +611,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#zktbhjnnhk .gt_first_grand_summary_row {
+#vqtfcwgwfi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -628,7 +621,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#zktbhjnnhk .gt_last_grand_summary_row_top {
+#vqtfcwgwfi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -638,11 +631,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#zktbhjnnhk .gt_striped {
+#vqtfcwgwfi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zktbhjnnhk .gt_table_body {
+#vqtfcwgwfi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -651,7 +644,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#zktbhjnnhk .gt_footnotes {
+#vqtfcwgwfi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -665,7 +658,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#zktbhjnnhk .gt_footnote {
+#vqtfcwgwfi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -674,7 +667,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#zktbhjnnhk .gt_sourcenotes {
+#vqtfcwgwfi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -688,7 +681,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#zktbhjnnhk .gt_sourcenote {
+#vqtfcwgwfi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -696,63 +689,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#zktbhjnnhk .gt_left {
+#vqtfcwgwfi .gt_left {
   text-align: left;
 }
 
-#zktbhjnnhk .gt_center {
+#vqtfcwgwfi .gt_center {
   text-align: center;
 }
 
-#zktbhjnnhk .gt_right {
+#vqtfcwgwfi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zktbhjnnhk .gt_font_normal {
+#vqtfcwgwfi .gt_font_normal {
   font-weight: normal;
 }
 
-#zktbhjnnhk .gt_font_bold {
+#vqtfcwgwfi .gt_font_bold {
   font-weight: bold;
 }
 
-#zktbhjnnhk .gt_font_italic {
+#vqtfcwgwfi .gt_font_italic {
   font-style: italic;
 }
 
-#zktbhjnnhk .gt_super {
+#vqtfcwgwfi .gt_super {
   font-size: 65%;
 }
 
-#zktbhjnnhk .gt_footnote_marks {
+#vqtfcwgwfi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zktbhjnnhk .gt_asterisk {
+#vqtfcwgwfi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zktbhjnnhk .gt_indent_1 {
+#vqtfcwgwfi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zktbhjnnhk .gt_indent_2 {
+#vqtfcwgwfi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zktbhjnnhk .gt_indent_3 {
+#vqtfcwgwfi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zktbhjnnhk .gt_indent_4 {
+#vqtfcwgwfi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zktbhjnnhk .gt_indent_5 {
+#vqtfcwgwfi .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -798,10 +791,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
 </section>
-<section id="kaplan-meier-and-non-parametric-tests" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="kaplan-meier-and-non-parametric-tests"><span class="header-section-number">15.2</span> Kaplan-Meier and non-parametric tests</h2>
+<section id="kaplan-meier-and-non-parametric-tests" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="kaplan-meier-and-non-parametric-tests"><span class="header-section-number">14.2</span> Kaplan-Meier and non-parametric tests</h2>
 <p>Let’s start by estimating the Kaplan-Meier survival curve for the prostate cancer patients. The Kaplan-Meier estimator is a non-parametric method used to estimate the survival function from lifetime data. The survival function is defined as the probability that an individual survives from the time of entry into the study until a specified time point. We fit the Kaplan-Meier estimator for the prostate cancer patients and plot the survival curves by age of dyagnosis.</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
@@ -815,13 +807,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="13-survival-analysis_files/figure-html/fig-kapmei-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kapmei-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.1: Kaplan-Meier plot
+Figure&nbsp;14.1: Kaplan-Meier plot
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In figure <a href="#fig-kapmei" class="quarto-xref">Figure&nbsp;<span>15.1</span></a> we can see that the survival probability decreases with age of diagnosis.</p>
+<p>In figure <a href="#fig-kapmei" class="quarto-xref">Figure&nbsp;<span>14.1</span></a> we can see that the survival probability decreases with age of diagnosis.</p>
 <p>Adding confidence intervals is a way to visually assess the uncertainty in the survival estimates.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -831,33 +823,33 @@ Figure&nbsp;15.1: Kaplan-Meier plot
 <img src="13-survival-analysis_files/figure-html/fig-kapmeiconf-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kapmeiconf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
+Figure&nbsp;14.2: Kaplan-Meier plot with confidence intervals
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Figure <a href="#fig-kapmeiconf" class="quarto-xref">Figure&nbsp;<span>15.2</span></a> shows the Kaplan-Meier plot with confidence intervals. From that the survival curves for the two oldest age groups are separated from the other while the two younger groups confidence intervals seem to be overlapping a little.</p>
+<p>Figure <a href="#fig-kapmeiconf" class="quarto-xref">Figure&nbsp;<span>14.2</span></a> shows the Kaplan-Meier plot with confidence intervals. From that the survival curves for the two oldest age groups are separated from the other while the two younger groups confidence intervals seem to be overlapping a little.</p>
 <p>We can also perform the log-rank test and the Wilcoxon test to compare the survival distributions of the two groups.Both of these are non-parametric tests used to compare the survival distributions of two groups.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="eajyzbxoyu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#eajyzbxoyu table {
+<div id="yiyrpfnudo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yiyrpfnudo table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#eajyzbxoyu thead, #eajyzbxoyu tbody, #eajyzbxoyu tfoot, #eajyzbxoyu tr, #eajyzbxoyu td, #eajyzbxoyu th {
+#yiyrpfnudo thead, #yiyrpfnudo tbody, #yiyrpfnudo tfoot, #yiyrpfnudo tr, #yiyrpfnudo td, #yiyrpfnudo th {
   border-style: none;
 }
 
-#eajyzbxoyu p {
+#yiyrpfnudo p {
   margin: 0;
   padding: 0;
 }
 
-#eajyzbxoyu .gt_table {
+#yiyrpfnudo .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -883,12 +875,12 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-left-color: #D3D3D3;
 }
 
-#eajyzbxoyu .gt_caption {
+#yiyrpfnudo .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#eajyzbxoyu .gt_title {
+#yiyrpfnudo .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -900,7 +892,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-bottom-width: 0;
 }
 
-#eajyzbxoyu .gt_subtitle {
+#yiyrpfnudo .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -912,7 +904,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-top-width: 0;
 }
 
-#eajyzbxoyu .gt_heading {
+#yiyrpfnudo .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -924,13 +916,13 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-right-color: #D3D3D3;
 }
 
-#eajyzbxoyu .gt_bottom_border {
+#yiyrpfnudo .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#eajyzbxoyu .gt_col_headings {
+#yiyrpfnudo .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -945,7 +937,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-right-color: #D3D3D3;
 }
 
-#eajyzbxoyu .gt_col_heading {
+#yiyrpfnudo .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -965,7 +957,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   overflow-x: hidden;
 }
 
-#eajyzbxoyu .gt_column_spanner_outer {
+#yiyrpfnudo .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -977,15 +969,15 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 4px;
 }
 
-#eajyzbxoyu .gt_column_spanner_outer:first-child {
+#yiyrpfnudo .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#eajyzbxoyu .gt_column_spanner_outer:last-child {
+#yiyrpfnudo .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#eajyzbxoyu .gt_column_spanner {
+#yiyrpfnudo .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -997,11 +989,11 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   width: 100%;
 }
 
-#eajyzbxoyu .gt_spanner_row {
+#yiyrpfnudo .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#eajyzbxoyu .gt_group_heading {
+#yiyrpfnudo .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1027,7 +1019,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   text-align: left;
 }
 
-#eajyzbxoyu .gt_empty_group_heading {
+#yiyrpfnudo .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1042,15 +1034,15 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   vertical-align: middle;
 }
 
-#eajyzbxoyu .gt_from_md > :first-child {
+#yiyrpfnudo .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#eajyzbxoyu .gt_from_md > :last-child {
+#yiyrpfnudo .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#eajyzbxoyu .gt_row {
+#yiyrpfnudo .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1069,7 +1061,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   overflow-x: hidden;
 }
 
-#eajyzbxoyu .gt_stub {
+#yiyrpfnudo .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1082,7 +1074,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#eajyzbxoyu .gt_stub_row_group {
+#yiyrpfnudo .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1096,15 +1088,15 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   vertical-align: top;
 }
 
-#eajyzbxoyu .gt_row_group_first td {
+#yiyrpfnudo .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#eajyzbxoyu .gt_row_group_first th {
+#yiyrpfnudo .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#eajyzbxoyu .gt_summary_row {
+#yiyrpfnudo .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1114,16 +1106,16 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#eajyzbxoyu .gt_first_summary_row {
+#yiyrpfnudo .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#eajyzbxoyu .gt_first_summary_row.thick {
+#yiyrpfnudo .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#eajyzbxoyu .gt_last_summary_row {
+#yiyrpfnudo .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1133,7 +1125,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-bottom-color: #D3D3D3;
 }
 
-#eajyzbxoyu .gt_grand_summary_row {
+#yiyrpfnudo .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1143,7 +1135,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#eajyzbxoyu .gt_first_grand_summary_row {
+#yiyrpfnudo .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1153,7 +1145,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-top-color: #D3D3D3;
 }
 
-#eajyzbxoyu .gt_last_grand_summary_row_top {
+#yiyrpfnudo .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1163,11 +1155,11 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-bottom-color: #D3D3D3;
 }
 
-#eajyzbxoyu .gt_striped {
+#yiyrpfnudo .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#eajyzbxoyu .gt_table_body {
+#yiyrpfnudo .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1176,7 +1168,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-bottom-color: #D3D3D3;
 }
 
-#eajyzbxoyu .gt_footnotes {
+#yiyrpfnudo .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1190,7 +1182,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-right-color: #D3D3D3;
 }
 
-#eajyzbxoyu .gt_footnote {
+#yiyrpfnudo .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1199,7 +1191,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#eajyzbxoyu .gt_sourcenotes {
+#yiyrpfnudo .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1213,7 +1205,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-right-color: #D3D3D3;
 }
 
-#eajyzbxoyu .gt_sourcenote {
+#yiyrpfnudo .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1221,63 +1213,63 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#eajyzbxoyu .gt_left {
+#yiyrpfnudo .gt_left {
   text-align: left;
 }
 
-#eajyzbxoyu .gt_center {
+#yiyrpfnudo .gt_center {
   text-align: center;
 }
 
-#eajyzbxoyu .gt_right {
+#yiyrpfnudo .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#eajyzbxoyu .gt_font_normal {
+#yiyrpfnudo .gt_font_normal {
   font-weight: normal;
 }
 
-#eajyzbxoyu .gt_font_bold {
+#yiyrpfnudo .gt_font_bold {
   font-weight: bold;
 }
 
-#eajyzbxoyu .gt_font_italic {
+#yiyrpfnudo .gt_font_italic {
   font-style: italic;
 }
 
-#eajyzbxoyu .gt_super {
+#yiyrpfnudo .gt_super {
   font-size: 65%;
 }
 
-#eajyzbxoyu .gt_footnote_marks {
+#yiyrpfnudo .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#eajyzbxoyu .gt_asterisk {
+#yiyrpfnudo .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#eajyzbxoyu .gt_indent_1 {
+#yiyrpfnudo .gt_indent_1 {
   text-indent: 5px;
 }
 
-#eajyzbxoyu .gt_indent_2 {
+#yiyrpfnudo .gt_indent_2 {
   text-indent: 10px;
 }
 
-#eajyzbxoyu .gt_indent_3 {
+#yiyrpfnudo .gt_indent_3 {
   text-indent: 15px;
 }
 
-#eajyzbxoyu .gt_indent_4 {
+#yiyrpfnudo .gt_indent_4 {
   text-indent: 20px;
 }
 
-#eajyzbxoyu .gt_indent_5 {
+#yiyrpfnudo .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1312,28 +1304,28 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
 </div>
 <p>The log-rank test and the Wilcoxon test both tell us that there is a significant difference in survival between age groups.</p>
 </section>
-<section id="cox-proportional-hazards-model" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="cox-proportional-hazards-model"><span class="header-section-number">15.3</span> Cox proportional hazards model</h2>
+<section id="cox-proportional-hazards-model" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="cox-proportional-hazards-model"><span class="header-section-number">14.3</span> Cox proportional hazards model</h2>
 <p>Another way to compare survival between groups is to use a Cox proportional hazards model. The Cox proportional hazards model is a semi-parametric model used to estimate the effect of covariates on survival time. It assumes that the hazard ratio is constant over time.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="kucxqsitrs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#kucxqsitrs table {
+<div id="kcaigiglmz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kcaigiglmz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kucxqsitrs thead, #kucxqsitrs tbody, #kucxqsitrs tfoot, #kucxqsitrs tr, #kucxqsitrs td, #kucxqsitrs th {
+#kcaigiglmz thead, #kcaigiglmz tbody, #kcaigiglmz tfoot, #kcaigiglmz tr, #kcaigiglmz td, #kcaigiglmz th {
   border-style: none;
 }
 
-#kucxqsitrs p {
+#kcaigiglmz p {
   margin: 0;
   padding: 0;
 }
 
-#kucxqsitrs .gt_table {
+#kcaigiglmz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1359,12 +1351,12 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-left-color: #D3D3D3;
 }
 
-#kucxqsitrs .gt_caption {
+#kcaigiglmz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kucxqsitrs .gt_title {
+#kcaigiglmz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1376,7 +1368,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-bottom-width: 0;
 }
 
-#kucxqsitrs .gt_subtitle {
+#kcaigiglmz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1388,7 +1380,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-top-width: 0;
 }
 
-#kucxqsitrs .gt_heading {
+#kcaigiglmz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1400,13 +1392,13 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-right-color: #D3D3D3;
 }
 
-#kucxqsitrs .gt_bottom_border {
+#kcaigiglmz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kucxqsitrs .gt_col_headings {
+#kcaigiglmz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1421,7 +1413,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-right-color: #D3D3D3;
 }
 
-#kucxqsitrs .gt_col_heading {
+#kcaigiglmz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1441,7 +1433,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   overflow-x: hidden;
 }
 
-#kucxqsitrs .gt_column_spanner_outer {
+#kcaigiglmz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1453,15 +1445,15 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 4px;
 }
 
-#kucxqsitrs .gt_column_spanner_outer:first-child {
+#kcaigiglmz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kucxqsitrs .gt_column_spanner_outer:last-child {
+#kcaigiglmz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kucxqsitrs .gt_column_spanner {
+#kcaigiglmz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1473,11 +1465,11 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   width: 100%;
 }
 
-#kucxqsitrs .gt_spanner_row {
+#kcaigiglmz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kucxqsitrs .gt_group_heading {
+#kcaigiglmz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1503,7 +1495,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   text-align: left;
 }
 
-#kucxqsitrs .gt_empty_group_heading {
+#kcaigiglmz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1518,15 +1510,15 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   vertical-align: middle;
 }
 
-#kucxqsitrs .gt_from_md > :first-child {
+#kcaigiglmz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kucxqsitrs .gt_from_md > :last-child {
+#kcaigiglmz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kucxqsitrs .gt_row {
+#kcaigiglmz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1545,7 +1537,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   overflow-x: hidden;
 }
 
-#kucxqsitrs .gt_stub {
+#kcaigiglmz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1558,7 +1550,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#kucxqsitrs .gt_stub_row_group {
+#kcaigiglmz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1572,15 +1564,15 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   vertical-align: top;
 }
 
-#kucxqsitrs .gt_row_group_first td {
+#kcaigiglmz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kucxqsitrs .gt_row_group_first th {
+#kcaigiglmz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kucxqsitrs .gt_summary_row {
+#kcaigiglmz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1590,16 +1582,16 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#kucxqsitrs .gt_first_summary_row {
+#kcaigiglmz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kucxqsitrs .gt_first_summary_row.thick {
+#kcaigiglmz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kucxqsitrs .gt_last_summary_row {
+#kcaigiglmz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1609,7 +1601,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-bottom-color: #D3D3D3;
 }
 
-#kucxqsitrs .gt_grand_summary_row {
+#kcaigiglmz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1619,7 +1611,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#kucxqsitrs .gt_first_grand_summary_row {
+#kcaigiglmz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1629,7 +1621,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-top-color: #D3D3D3;
 }
 
-#kucxqsitrs .gt_last_grand_summary_row_top {
+#kcaigiglmz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1639,11 +1631,11 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-bottom-color: #D3D3D3;
 }
 
-#kucxqsitrs .gt_striped {
+#kcaigiglmz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#kucxqsitrs .gt_table_body {
+#kcaigiglmz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1652,7 +1644,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-bottom-color: #D3D3D3;
 }
 
-#kucxqsitrs .gt_footnotes {
+#kcaigiglmz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1666,7 +1658,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-right-color: #D3D3D3;
 }
 
-#kucxqsitrs .gt_footnote {
+#kcaigiglmz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1675,7 +1667,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#kucxqsitrs .gt_sourcenotes {
+#kcaigiglmz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1689,7 +1681,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-right-color: #D3D3D3;
 }
 
-#kucxqsitrs .gt_sourcenote {
+#kcaigiglmz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1697,63 +1689,63 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#kucxqsitrs .gt_left {
+#kcaigiglmz .gt_left {
   text-align: left;
 }
 
-#kucxqsitrs .gt_center {
+#kcaigiglmz .gt_center {
   text-align: center;
 }
 
-#kucxqsitrs .gt_right {
+#kcaigiglmz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kucxqsitrs .gt_font_normal {
+#kcaigiglmz .gt_font_normal {
   font-weight: normal;
 }
 
-#kucxqsitrs .gt_font_bold {
+#kcaigiglmz .gt_font_bold {
   font-weight: bold;
 }
 
-#kucxqsitrs .gt_font_italic {
+#kcaigiglmz .gt_font_italic {
   font-style: italic;
 }
 
-#kucxqsitrs .gt_super {
+#kcaigiglmz .gt_super {
   font-size: 65%;
 }
 
-#kucxqsitrs .gt_footnote_marks {
+#kcaigiglmz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kucxqsitrs .gt_asterisk {
+#kcaigiglmz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kucxqsitrs .gt_indent_1 {
+#kcaigiglmz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kucxqsitrs .gt_indent_2 {
+#kcaigiglmz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kucxqsitrs .gt_indent_3 {
+#kcaigiglmz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kucxqsitrs .gt_indent_4 {
+#kcaigiglmz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kucxqsitrs .gt_indent_5 {
+#kcaigiglmz .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1798,23 +1790,23 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
 <p>The Cox proportional hazards model shows that the hazard ratio is significantly higher for all groups compared with the youngest group (66-69). For the 70-74 age group the hazard is 1.2 times higher. For 75-79 age group the hazard is 1.75 times higher. For the oldest group (80+) the hazard is almost 3 times higher. When using estimating a Cox proportional hazards model one can also use other covariates to estimate the hazard ratio.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="zfjhevvnni" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zfjhevvnni table {
+<div id="ldvyhqkrhu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ldvyhqkrhu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zfjhevvnni thead, #zfjhevvnni tbody, #zfjhevvnni tfoot, #zfjhevvnni tr, #zfjhevvnni td, #zfjhevvnni th {
+#ldvyhqkrhu thead, #ldvyhqkrhu tbody, #ldvyhqkrhu tfoot, #ldvyhqkrhu tr, #ldvyhqkrhu td, #ldvyhqkrhu th {
   border-style: none;
 }
 
-#zfjhevvnni p {
+#ldvyhqkrhu p {
   margin: 0;
   padding: 0;
 }
 
-#zfjhevvnni .gt_table {
+#ldvyhqkrhu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1840,12 +1832,12 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-left-color: #D3D3D3;
 }
 
-#zfjhevvnni .gt_caption {
+#ldvyhqkrhu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zfjhevvnni .gt_title {
+#ldvyhqkrhu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1857,7 +1849,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-bottom-width: 0;
 }
 
-#zfjhevvnni .gt_subtitle {
+#ldvyhqkrhu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1869,7 +1861,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-top-width: 0;
 }
 
-#zfjhevvnni .gt_heading {
+#ldvyhqkrhu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1881,13 +1873,13 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-right-color: #D3D3D3;
 }
 
-#zfjhevvnni .gt_bottom_border {
+#ldvyhqkrhu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zfjhevvnni .gt_col_headings {
+#ldvyhqkrhu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1902,7 +1894,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-right-color: #D3D3D3;
 }
 
-#zfjhevvnni .gt_col_heading {
+#ldvyhqkrhu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1922,7 +1914,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   overflow-x: hidden;
 }
 
-#zfjhevvnni .gt_column_spanner_outer {
+#ldvyhqkrhu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1934,15 +1926,15 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 4px;
 }
 
-#zfjhevvnni .gt_column_spanner_outer:first-child {
+#ldvyhqkrhu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zfjhevvnni .gt_column_spanner_outer:last-child {
+#ldvyhqkrhu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zfjhevvnni .gt_column_spanner {
+#ldvyhqkrhu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1954,11 +1946,11 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   width: 100%;
 }
 
-#zfjhevvnni .gt_spanner_row {
+#ldvyhqkrhu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zfjhevvnni .gt_group_heading {
+#ldvyhqkrhu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1984,7 +1976,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   text-align: left;
 }
 
-#zfjhevvnni .gt_empty_group_heading {
+#ldvyhqkrhu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1999,15 +1991,15 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   vertical-align: middle;
 }
 
-#zfjhevvnni .gt_from_md > :first-child {
+#ldvyhqkrhu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zfjhevvnni .gt_from_md > :last-child {
+#ldvyhqkrhu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zfjhevvnni .gt_row {
+#ldvyhqkrhu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2026,7 +2018,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   overflow-x: hidden;
 }
 
-#zfjhevvnni .gt_stub {
+#ldvyhqkrhu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2039,7 +2031,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#zfjhevvnni .gt_stub_row_group {
+#ldvyhqkrhu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2053,15 +2045,15 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   vertical-align: top;
 }
 
-#zfjhevvnni .gt_row_group_first td {
+#ldvyhqkrhu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zfjhevvnni .gt_row_group_first th {
+#ldvyhqkrhu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zfjhevvnni .gt_summary_row {
+#ldvyhqkrhu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2071,16 +2063,16 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#zfjhevvnni .gt_first_summary_row {
+#ldvyhqkrhu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zfjhevvnni .gt_first_summary_row.thick {
+#ldvyhqkrhu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zfjhevvnni .gt_last_summary_row {
+#ldvyhqkrhu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2090,7 +2082,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-bottom-color: #D3D3D3;
 }
 
-#zfjhevvnni .gt_grand_summary_row {
+#ldvyhqkrhu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2100,7 +2092,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#zfjhevvnni .gt_first_grand_summary_row {
+#ldvyhqkrhu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2110,7 +2102,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-top-color: #D3D3D3;
 }
 
-#zfjhevvnni .gt_last_grand_summary_row_top {
+#ldvyhqkrhu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2120,11 +2112,11 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-bottom-color: #D3D3D3;
 }
 
-#zfjhevvnni .gt_striped {
+#ldvyhqkrhu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zfjhevvnni .gt_table_body {
+#ldvyhqkrhu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2133,7 +2125,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-bottom-color: #D3D3D3;
 }
 
-#zfjhevvnni .gt_footnotes {
+#ldvyhqkrhu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2147,7 +2139,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-right-color: #D3D3D3;
 }
 
-#zfjhevvnni .gt_footnote {
+#ldvyhqkrhu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2156,7 +2148,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#zfjhevvnni .gt_sourcenotes {
+#ldvyhqkrhu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2170,7 +2162,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   border-right-color: #D3D3D3;
 }
 
-#zfjhevvnni .gt_sourcenote {
+#ldvyhqkrhu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2178,63 +2170,63 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
   padding-right: 5px;
 }
 
-#zfjhevvnni .gt_left {
+#ldvyhqkrhu .gt_left {
   text-align: left;
 }
 
-#zfjhevvnni .gt_center {
+#ldvyhqkrhu .gt_center {
   text-align: center;
 }
 
-#zfjhevvnni .gt_right {
+#ldvyhqkrhu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zfjhevvnni .gt_font_normal {
+#ldvyhqkrhu .gt_font_normal {
   font-weight: normal;
 }
 
-#zfjhevvnni .gt_font_bold {
+#ldvyhqkrhu .gt_font_bold {
   font-weight: bold;
 }
 
-#zfjhevvnni .gt_font_italic {
+#ldvyhqkrhu .gt_font_italic {
   font-style: italic;
 }
 
-#zfjhevvnni .gt_super {
+#ldvyhqkrhu .gt_super {
   font-size: 65%;
 }
 
-#zfjhevvnni .gt_footnote_marks {
+#ldvyhqkrhu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zfjhevvnni .gt_asterisk {
+#ldvyhqkrhu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zfjhevvnni .gt_indent_1 {
+#ldvyhqkrhu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zfjhevvnni .gt_indent_2 {
+#ldvyhqkrhu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zfjhevvnni .gt_indent_3 {
+#ldvyhqkrhu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zfjhevvnni .gt_indent_4 {
+#ldvyhqkrhu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zfjhevvnni .gt_indent_5 {
+#ldvyhqkrhu .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2304,7 +2296,7 @@ Figure&nbsp;15.2: Kaplan-Meier plot with confidence intervals
 <img src="13-survival-analysis_files/figure-html/fig-partagegroup-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-partagegroup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.3: Partial residuals plot 1
+Figure&nbsp;14.3: Partial residuals plot 1
 </figcaption>
 </figure>
 </div>
@@ -2318,7 +2310,7 @@ Figure&nbsp;15.3: Partial residuals plot 1
 <img src="13-survival-analysis_files/figure-html/fig-partgrade-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-partgrade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.4: Partial residuals plot 2
+Figure&nbsp;14.4: Partial residuals plot 2
 </figcaption>
 </figure>
 </div>
@@ -2332,14 +2324,14 @@ Figure&nbsp;15.4: Partial residuals plot 2
 <img src="13-survival-analysis_files/figure-html/fig-partstage-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-partstage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.5: Partial residuals plot 3
+Figure&nbsp;14.5: Partial residuals plot 3
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<section id="cox-proportional-hazards-model-assumptions" class="level3" data-number="15.3.1">
-<h3 data-number="15.3.1" class="anchored" data-anchor-id="cox-proportional-hazards-model-assumptions"><span class="header-section-number">15.3.1</span> Cox proportional hazards model assumptions</h3>
+<section id="cox-proportional-hazards-model-assumptions" class="level3" data-number="14.3.1">
+<h3 data-number="14.3.1" class="anchored" data-anchor-id="cox-proportional-hazards-model-assumptions"><span class="header-section-number">14.3.1</span> Cox proportional hazards model assumptions</h3>
 <p>Next step in our analysis is to assess the validity of the model by using diagnostic plots in order to understand whether the underlying assumptions needed for this model are met. It is also a way to understand whether this model is appropriate for our data at hand. One of the assumption of a Cox proportional hazards regression model is that the hazards are proportional at each point in time throughout follow-up and this is what we will try to investigate.</p>
 <p>First we look at the log(-log(survival)) plot to check for deviations from the proportional hazards assumption in the first Cox model we made.</p>
 <div class="cell">
@@ -2350,13 +2342,13 @@ Figure&nbsp;15.5: Partial residuals plot 3
 <img src="13-survival-analysis_files/figure-html/fig-diagage-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diagage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.6: Deviations from the proportional hazards assumption (sex)
+Figure&nbsp;14.6: Deviations from the proportional hazards assumption (sex)
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-diagage" class="quarto-xref">Figure&nbsp;<span>15.6</span></a> shows that the lines are fairly but not perfectly parallel. This indicates that the proportional hazards assumption may hold for age group.</p>
+<p><a href="#fig-diagage" class="quarto-xref">Figure&nbsp;<span>14.6</span></a> shows that the lines are fairly but not perfectly parallel. This indicates that the proportional hazards assumption may hold for age group.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-diaggrade" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -2365,13 +2357,13 @@ Figure&nbsp;15.6: Deviations from the proportional hazards assumption (sex)
 <img src="13-survival-analysis_files/figure-html/fig-diaggrade-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diaggrade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.7: Deviations from the proportional hazards assumption (sex)
+Figure&nbsp;14.7: Deviations from the proportional hazards assumption (sex)
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-diaggrade" class="quarto-xref">Figure&nbsp;<span>15.7</span></a> shows that the lines are parallel all the time. This indicates that the proportional hazards assumption may hold for age group.</p>
+<p><a href="#fig-diaggrade" class="quarto-xref">Figure&nbsp;<span>14.7</span></a> shows that the lines are parallel all the time. This indicates that the proportional hazards assumption may hold for age group.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-diagstage" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -2380,33 +2372,33 @@ Figure&nbsp;15.7: Deviations from the proportional hazards assumption (sex)
 <img src="13-survival-analysis_files/figure-html/fig-diagstage-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diagstage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
+Figure&nbsp;14.8: Deviations from the proportional hazards assumption (sex)
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-diagstage" class="quarto-xref">Figure&nbsp;<span>15.8</span></a> shows that the lines are fairly but not perfectly parallel. This indicates that the proportional hazards assumption may hold for age group.</p>
-<p>We now do a hypothesis test of whether the effect of each covariate differs according to time, and a global test of all covariates at once. This is done by testing for an interaction effect between the covariate and log(time). A significant p-value indicates that the proportional hazards assumption is violated. This is presented in <span class="quarto-unresolved-ref">?tbl-phtest</span>.</p>
+<p><a href="#fig-diagstage" class="quarto-xref">Figure&nbsp;<span>14.8</span></a> shows that the lines are fairly but not perfectly parallel. This indicates that the proportional hazards assumption may hold for age group.</p>
+<p>We now do a hypothesis test of whether the effect of each covariate differs according to time, and a global test of all covariates at once. This is done by testing for an interaction effect between the covariate and log(time). A significant p-value indicates that the proportional hazards assumption is violated. This is presented in the table below.</p>
 <div id="tbl-phtest" class="cell anchored">
 <div class="cell-output-display">
-<div id="auisqajtmx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#auisqajtmx table {
+<div id="smbjgjaqxy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#smbjgjaqxy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#auisqajtmx thead, #auisqajtmx tbody, #auisqajtmx tfoot, #auisqajtmx tr, #auisqajtmx td, #auisqajtmx th {
+#smbjgjaqxy thead, #smbjgjaqxy tbody, #smbjgjaqxy tfoot, #smbjgjaqxy tr, #smbjgjaqxy td, #smbjgjaqxy th {
   border-style: none;
 }
 
-#auisqajtmx p {
+#smbjgjaqxy p {
   margin: 0;
   padding: 0;
 }
 
-#auisqajtmx .gt_table {
+#smbjgjaqxy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2432,12 +2424,12 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   border-left-color: #D3D3D3;
 }
 
-#auisqajtmx .gt_caption {
+#smbjgjaqxy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#auisqajtmx .gt_title {
+#smbjgjaqxy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2449,7 +2441,7 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   border-bottom-width: 0;
 }
 
-#auisqajtmx .gt_subtitle {
+#smbjgjaqxy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2461,7 +2453,7 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   border-top-width: 0;
 }
 
-#auisqajtmx .gt_heading {
+#smbjgjaqxy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2473,13 +2465,13 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   border-right-color: #D3D3D3;
 }
 
-#auisqajtmx .gt_bottom_border {
+#smbjgjaqxy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#auisqajtmx .gt_col_headings {
+#smbjgjaqxy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2494,7 +2486,7 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   border-right-color: #D3D3D3;
 }
 
-#auisqajtmx .gt_col_heading {
+#smbjgjaqxy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2514,7 +2506,7 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   overflow-x: hidden;
 }
 
-#auisqajtmx .gt_column_spanner_outer {
+#smbjgjaqxy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2526,15 +2518,15 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   padding-right: 4px;
 }
 
-#auisqajtmx .gt_column_spanner_outer:first-child {
+#smbjgjaqxy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#auisqajtmx .gt_column_spanner_outer:last-child {
+#smbjgjaqxy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#auisqajtmx .gt_column_spanner {
+#smbjgjaqxy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2546,11 +2538,11 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   width: 100%;
 }
 
-#auisqajtmx .gt_spanner_row {
+#smbjgjaqxy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#auisqajtmx .gt_group_heading {
+#smbjgjaqxy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2576,7 +2568,7 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   text-align: left;
 }
 
-#auisqajtmx .gt_empty_group_heading {
+#smbjgjaqxy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2591,15 +2583,15 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   vertical-align: middle;
 }
 
-#auisqajtmx .gt_from_md > :first-child {
+#smbjgjaqxy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#auisqajtmx .gt_from_md > :last-child {
+#smbjgjaqxy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#auisqajtmx .gt_row {
+#smbjgjaqxy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2618,7 +2610,7 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   overflow-x: hidden;
 }
 
-#auisqajtmx .gt_stub {
+#smbjgjaqxy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2631,7 +2623,7 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   padding-right: 5px;
 }
 
-#auisqajtmx .gt_stub_row_group {
+#smbjgjaqxy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2645,15 +2637,15 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   vertical-align: top;
 }
 
-#auisqajtmx .gt_row_group_first td {
+#smbjgjaqxy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#auisqajtmx .gt_row_group_first th {
+#smbjgjaqxy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#auisqajtmx .gt_summary_row {
+#smbjgjaqxy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2663,16 +2655,16 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   padding-right: 5px;
 }
 
-#auisqajtmx .gt_first_summary_row {
+#smbjgjaqxy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#auisqajtmx .gt_first_summary_row.thick {
+#smbjgjaqxy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#auisqajtmx .gt_last_summary_row {
+#smbjgjaqxy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2682,7 +2674,7 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   border-bottom-color: #D3D3D3;
 }
 
-#auisqajtmx .gt_grand_summary_row {
+#smbjgjaqxy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2692,7 +2684,7 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   padding-right: 5px;
 }
 
-#auisqajtmx .gt_first_grand_summary_row {
+#smbjgjaqxy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2702,7 +2694,7 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   border-top-color: #D3D3D3;
 }
 
-#auisqajtmx .gt_last_grand_summary_row_top {
+#smbjgjaqxy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2712,11 +2704,11 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   border-bottom-color: #D3D3D3;
 }
 
-#auisqajtmx .gt_striped {
+#smbjgjaqxy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#auisqajtmx .gt_table_body {
+#smbjgjaqxy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2725,7 +2717,7 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   border-bottom-color: #D3D3D3;
 }
 
-#auisqajtmx .gt_footnotes {
+#smbjgjaqxy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2739,7 +2731,7 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   border-right-color: #D3D3D3;
 }
 
-#auisqajtmx .gt_footnote {
+#smbjgjaqxy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2748,7 +2740,7 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   padding-right: 5px;
 }
 
-#auisqajtmx .gt_sourcenotes {
+#smbjgjaqxy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2762,7 +2754,7 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   border-right-color: #D3D3D3;
 }
 
-#auisqajtmx .gt_sourcenote {
+#smbjgjaqxy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2770,63 +2762,63 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
   padding-right: 5px;
 }
 
-#auisqajtmx .gt_left {
+#smbjgjaqxy .gt_left {
   text-align: left;
 }
 
-#auisqajtmx .gt_center {
+#smbjgjaqxy .gt_center {
   text-align: center;
 }
 
-#auisqajtmx .gt_right {
+#smbjgjaqxy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#auisqajtmx .gt_font_normal {
+#smbjgjaqxy .gt_font_normal {
   font-weight: normal;
 }
 
-#auisqajtmx .gt_font_bold {
+#smbjgjaqxy .gt_font_bold {
   font-weight: bold;
 }
 
-#auisqajtmx .gt_font_italic {
+#smbjgjaqxy .gt_font_italic {
   font-style: italic;
 }
 
-#auisqajtmx .gt_super {
+#smbjgjaqxy .gt_super {
   font-size: 65%;
 }
 
-#auisqajtmx .gt_footnote_marks {
+#smbjgjaqxy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#auisqajtmx .gt_asterisk {
+#smbjgjaqxy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#auisqajtmx .gt_indent_1 {
+#smbjgjaqxy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#auisqajtmx .gt_indent_2 {
+#smbjgjaqxy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#auisqajtmx .gt_indent_3 {
+#smbjgjaqxy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#auisqajtmx .gt_indent_4 {
+#smbjgjaqxy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#auisqajtmx .gt_indent_5 {
+#smbjgjaqxy .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2885,13 +2877,13 @@ Figure&nbsp;15.8: Deviations from the proportional hazards assumption (sex)
 <img src="13-survival-analysis_files/figure-html/fig-schenage-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-schenage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.9: Schoenfeld residuals over time (age group)
+Figure&nbsp;14.9: Schoenfeld residuals over time (age group)
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Plots of the Schoenfeld residuals Deviation from a zero-slope line is evidence that the proportional hazards assumption is violated. One should note though that the violation of the proportionality assumption doesn’t necessarily mean the model is invalid since the violation might only be present for some subset of the population. In <a href="#fig-schenage" class="quarto-xref">Figure&nbsp;<span>15.9</span></a> we see that the line is not straight (it looks as if it has a polynomial shape) which implies non-proportionality in the form of a rising hazard ratio over time.</p>
+<p>Plots of the Schoenfeld residuals Deviation from a zero-slope line is evidence that the proportional hazards assumption is violated. One should note though that the violation of the proportionality assumption doesn’t necessarily mean the model is invalid since the violation might only be present for some subset of the population. In <a href="#fig-schenage" class="quarto-xref">Figure&nbsp;<span>14.9</span></a> we see that the line is not straight (it looks as if it has a polynomial shape) which implies non-proportionality in the form of a rising hazard ratio over time.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-schengrade" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -2900,13 +2892,13 @@ Figure&nbsp;15.9: Schoenfeld residuals over time (age group)
 <img src="13-survival-analysis_files/figure-html/fig-schengrade-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-schengrade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.10: Schoenfeld residuals over time (grade)
+Figure&nbsp;14.10: Schoenfeld residuals over time (grade)
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In <a href="#fig-schengrade" class="quarto-xref">Figure&nbsp;<span>15.10</span></a> the line is not straight implying non-proportionality in the form of a declining hazard ratio over time.</p>
+<p>In <a href="#fig-schengrade" class="quarto-xref">Figure&nbsp;<span>14.10</span></a> the line is not straight implying non-proportionality in the form of a declining hazard ratio over time.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-schenstage" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -2915,17 +2907,17 @@ Figure&nbsp;15.10: Schoenfeld residuals over time (grade)
 <img src="13-survival-analysis_files/figure-html/fig-schenstage-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-schenstage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.11: Schoenfeld residuals over time (stage)
+Figure&nbsp;14.11: Schoenfeld residuals over time (stage)
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In <a href="#fig-schenstage" class="quarto-xref">Figure&nbsp;<span>15.11</span></a> the line is not perfectly straight but close to although it has a somewhat declining hazard ratio over time.</p>
+<p>In <a href="#fig-schenstage" class="quarto-xref">Figure&nbsp;<span>14.11</span></a> the line is not perfectly straight but close to although it has a somewhat declining hazard ratio over time.</p>
 </section>
 </section>
-<section id="competing-risks-analysis" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="competing-risks-analysis"><span class="header-section-number">15.4</span> Competing risks analysis</h2>
+<section id="competing-risks-analysis" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="competing-risks-analysis"><span class="header-section-number">14.4</span> Competing risks analysis</h2>
 <p>We know that the risk of death increases for a patient with a poor grade for both cancer and other causes of death. But does this effect differ? Using competing risk analysis we can determine whether there is a difference and what the difference in the effect the grade of the cancer has on the hazard of death from prostate cancer and other causes of death.</p>
 <p>We will do this using the method by Putter et al.&nbsp;(reference) which is implemented in the <code>comprisk</code> package in R. This begins by setting up a transition matrix.</p>
 <div class="cell">
@@ -2937,26 +2929,26 @@ from         event-free prostate other
   other              NA       NA    NA</code></pre>
 </div>
 </div>
-<p>Using the function msprep we can create a new data set that is suitable for competing risk analysis. This new data set, its 10 first rows seen in table <span class="citation" data-cites="tab-prostlong">(<a href="#ref-tab-prostlong" role="doc-biblioref"><strong>tab-prostlong?</strong></a>)</span>, has twice as many rows as the original data. The first column, id, refering to the patient number is repeated twice. The column trans indicates the cause of death; “1” refers to death from prostate cancer and “2” refers to death from other causes. The column time is the time to the event or censoring, and the column status indicates whether the event was observed or censored. The columns grade, ageGroup, and stage are repeated for each cause of death. .</p>
+<p>Using the function msprep we can create a new data set that is suitable for competing risk analysis. This new data set, its 10 first rows seen in the table below, has twice as many rows as the original data. The first column, id, refering to the patient number is repeated twice. The column trans indicates the cause of death; “1” refers to death from prostate cancer and “2” refers to death from other causes. The column time is the time to the event or censoring, and the column status indicates whether the event was observed or censored. The columns grade, ageGroup, and stage are repeated for each cause of death. .</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="oxkgygscss" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#oxkgygscss table {
+<div id="ahfgacuomn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ahfgacuomn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#oxkgygscss thead, #oxkgygscss tbody, #oxkgygscss tfoot, #oxkgygscss tr, #oxkgygscss td, #oxkgygscss th {
+#ahfgacuomn thead, #ahfgacuomn tbody, #ahfgacuomn tfoot, #ahfgacuomn tr, #ahfgacuomn td, #ahfgacuomn th {
   border-style: none;
 }
 
-#oxkgygscss p {
+#ahfgacuomn p {
   margin: 0;
   padding: 0;
 }
 
-#oxkgygscss .gt_table {
+#ahfgacuomn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2982,12 +2974,12 @@ from         event-free prostate other
   border-left-color: #D3D3D3;
 }
 
-#oxkgygscss .gt_caption {
+#ahfgacuomn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#oxkgygscss .gt_title {
+#ahfgacuomn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2999,7 +2991,7 @@ from         event-free prostate other
   border-bottom-width: 0;
 }
 
-#oxkgygscss .gt_subtitle {
+#ahfgacuomn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3011,7 +3003,7 @@ from         event-free prostate other
   border-top-width: 0;
 }
 
-#oxkgygscss .gt_heading {
+#ahfgacuomn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3023,13 +3015,13 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#oxkgygscss .gt_bottom_border {
+#ahfgacuomn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#oxkgygscss .gt_col_headings {
+#ahfgacuomn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3044,7 +3036,7 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#oxkgygscss .gt_col_heading {
+#ahfgacuomn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3064,7 +3056,7 @@ from         event-free prostate other
   overflow-x: hidden;
 }
 
-#oxkgygscss .gt_column_spanner_outer {
+#ahfgacuomn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3076,15 +3068,15 @@ from         event-free prostate other
   padding-right: 4px;
 }
 
-#oxkgygscss .gt_column_spanner_outer:first-child {
+#ahfgacuomn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#oxkgygscss .gt_column_spanner_outer:last-child {
+#ahfgacuomn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#oxkgygscss .gt_column_spanner {
+#ahfgacuomn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3096,11 +3088,11 @@ from         event-free prostate other
   width: 100%;
 }
 
-#oxkgygscss .gt_spanner_row {
+#ahfgacuomn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#oxkgygscss .gt_group_heading {
+#ahfgacuomn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3126,7 +3118,7 @@ from         event-free prostate other
   text-align: left;
 }
 
-#oxkgygscss .gt_empty_group_heading {
+#ahfgacuomn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3141,15 +3133,15 @@ from         event-free prostate other
   vertical-align: middle;
 }
 
-#oxkgygscss .gt_from_md > :first-child {
+#ahfgacuomn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#oxkgygscss .gt_from_md > :last-child {
+#ahfgacuomn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#oxkgygscss .gt_row {
+#ahfgacuomn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3168,7 +3160,7 @@ from         event-free prostate other
   overflow-x: hidden;
 }
 
-#oxkgygscss .gt_stub {
+#ahfgacuomn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3181,7 +3173,7 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#oxkgygscss .gt_stub_row_group {
+#ahfgacuomn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3195,15 +3187,15 @@ from         event-free prostate other
   vertical-align: top;
 }
 
-#oxkgygscss .gt_row_group_first td {
+#ahfgacuomn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#oxkgygscss .gt_row_group_first th {
+#ahfgacuomn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#oxkgygscss .gt_summary_row {
+#ahfgacuomn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3213,16 +3205,16 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#oxkgygscss .gt_first_summary_row {
+#ahfgacuomn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#oxkgygscss .gt_first_summary_row.thick {
+#ahfgacuomn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#oxkgygscss .gt_last_summary_row {
+#ahfgacuomn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3232,7 +3224,7 @@ from         event-free prostate other
   border-bottom-color: #D3D3D3;
 }
 
-#oxkgygscss .gt_grand_summary_row {
+#ahfgacuomn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3242,7 +3234,7 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#oxkgygscss .gt_first_grand_summary_row {
+#ahfgacuomn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3252,7 +3244,7 @@ from         event-free prostate other
   border-top-color: #D3D3D3;
 }
 
-#oxkgygscss .gt_last_grand_summary_row_top {
+#ahfgacuomn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3262,11 +3254,11 @@ from         event-free prostate other
   border-bottom-color: #D3D3D3;
 }
 
-#oxkgygscss .gt_striped {
+#ahfgacuomn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#oxkgygscss .gt_table_body {
+#ahfgacuomn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3275,7 +3267,7 @@ from         event-free prostate other
   border-bottom-color: #D3D3D3;
 }
 
-#oxkgygscss .gt_footnotes {
+#ahfgacuomn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3289,7 +3281,7 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#oxkgygscss .gt_footnote {
+#ahfgacuomn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3298,7 +3290,7 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#oxkgygscss .gt_sourcenotes {
+#ahfgacuomn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3312,7 +3304,7 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#oxkgygscss .gt_sourcenote {
+#ahfgacuomn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3320,63 +3312,63 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#oxkgygscss .gt_left {
+#ahfgacuomn .gt_left {
   text-align: left;
 }
 
-#oxkgygscss .gt_center {
+#ahfgacuomn .gt_center {
   text-align: center;
 }
 
-#oxkgygscss .gt_right {
+#ahfgacuomn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#oxkgygscss .gt_font_normal {
+#ahfgacuomn .gt_font_normal {
   font-weight: normal;
 }
 
-#oxkgygscss .gt_font_bold {
+#ahfgacuomn .gt_font_bold {
   font-weight: bold;
 }
 
-#oxkgygscss .gt_font_italic {
+#ahfgacuomn .gt_font_italic {
   font-style: italic;
 }
 
-#oxkgygscss .gt_super {
+#ahfgacuomn .gt_super {
   font-size: 65%;
 }
 
-#oxkgygscss .gt_footnote_marks {
+#ahfgacuomn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#oxkgygscss .gt_asterisk {
+#ahfgacuomn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#oxkgygscss .gt_indent_1 {
+#ahfgacuomn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#oxkgygscss .gt_indent_2 {
+#ahfgacuomn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#oxkgygscss .gt_indent_3 {
+#ahfgacuomn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#oxkgygscss .gt_indent_4 {
+#ahfgacuomn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#oxkgygscss .gt_indent_5 {
+#ahfgacuomn .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -3544,25 +3536,25 @@ from         event-free prostate other
 </div>
 <p>We will now be able to look at the hazard of death from prostate cancer while treating the other causes as censored and vice versa. We can now obtain estimates of the effects of our variables of interest on prostate-specific and other death causes.</p>
 <p>We begin with looking at the effect of grade, age group, and stage on the hazard of death from prostate cancer.</p>
-<div class="cell">
+<div id="tbl-compcancer" class="cell anchored">
 <div class="cell-output-display">
-<div id="dlnhbuqtyh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dlnhbuqtyh table {
+<div id="dkjlnrxiya" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dkjlnrxiya table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dlnhbuqtyh thead, #dlnhbuqtyh tbody, #dlnhbuqtyh tfoot, #dlnhbuqtyh tr, #dlnhbuqtyh td, #dlnhbuqtyh th {
+#dkjlnrxiya thead, #dkjlnrxiya tbody, #dkjlnrxiya tfoot, #dkjlnrxiya tr, #dkjlnrxiya td, #dkjlnrxiya th {
   border-style: none;
 }
 
-#dlnhbuqtyh p {
+#dkjlnrxiya p {
   margin: 0;
   padding: 0;
 }
 
-#dlnhbuqtyh .gt_table {
+#dkjlnrxiya .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3588,12 +3580,12 @@ from         event-free prostate other
   border-left-color: #D3D3D3;
 }
 
-#dlnhbuqtyh .gt_caption {
+#dkjlnrxiya .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dlnhbuqtyh .gt_title {
+#dkjlnrxiya .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3605,7 +3597,7 @@ from         event-free prostate other
   border-bottom-width: 0;
 }
 
-#dlnhbuqtyh .gt_subtitle {
+#dkjlnrxiya .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3617,7 +3609,7 @@ from         event-free prostate other
   border-top-width: 0;
 }
 
-#dlnhbuqtyh .gt_heading {
+#dkjlnrxiya .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3629,13 +3621,13 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#dlnhbuqtyh .gt_bottom_border {
+#dkjlnrxiya .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dlnhbuqtyh .gt_col_headings {
+#dkjlnrxiya .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3650,7 +3642,7 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#dlnhbuqtyh .gt_col_heading {
+#dkjlnrxiya .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3670,7 +3662,7 @@ from         event-free prostate other
   overflow-x: hidden;
 }
 
-#dlnhbuqtyh .gt_column_spanner_outer {
+#dkjlnrxiya .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3682,15 +3674,15 @@ from         event-free prostate other
   padding-right: 4px;
 }
 
-#dlnhbuqtyh .gt_column_spanner_outer:first-child {
+#dkjlnrxiya .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dlnhbuqtyh .gt_column_spanner_outer:last-child {
+#dkjlnrxiya .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dlnhbuqtyh .gt_column_spanner {
+#dkjlnrxiya .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3702,11 +3694,11 @@ from         event-free prostate other
   width: 100%;
 }
 
-#dlnhbuqtyh .gt_spanner_row {
+#dkjlnrxiya .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dlnhbuqtyh .gt_group_heading {
+#dkjlnrxiya .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3732,7 +3724,7 @@ from         event-free prostate other
   text-align: left;
 }
 
-#dlnhbuqtyh .gt_empty_group_heading {
+#dkjlnrxiya .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3747,15 +3739,15 @@ from         event-free prostate other
   vertical-align: middle;
 }
 
-#dlnhbuqtyh .gt_from_md > :first-child {
+#dkjlnrxiya .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dlnhbuqtyh .gt_from_md > :last-child {
+#dkjlnrxiya .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dlnhbuqtyh .gt_row {
+#dkjlnrxiya .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3774,7 +3766,7 @@ from         event-free prostate other
   overflow-x: hidden;
 }
 
-#dlnhbuqtyh .gt_stub {
+#dkjlnrxiya .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3787,7 +3779,7 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#dlnhbuqtyh .gt_stub_row_group {
+#dkjlnrxiya .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3801,15 +3793,15 @@ from         event-free prostate other
   vertical-align: top;
 }
 
-#dlnhbuqtyh .gt_row_group_first td {
+#dkjlnrxiya .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dlnhbuqtyh .gt_row_group_first th {
+#dkjlnrxiya .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dlnhbuqtyh .gt_summary_row {
+#dkjlnrxiya .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3819,16 +3811,16 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#dlnhbuqtyh .gt_first_summary_row {
+#dkjlnrxiya .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dlnhbuqtyh .gt_first_summary_row.thick {
+#dkjlnrxiya .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dlnhbuqtyh .gt_last_summary_row {
+#dkjlnrxiya .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3838,7 +3830,7 @@ from         event-free prostate other
   border-bottom-color: #D3D3D3;
 }
 
-#dlnhbuqtyh .gt_grand_summary_row {
+#dkjlnrxiya .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3848,7 +3840,7 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#dlnhbuqtyh .gt_first_grand_summary_row {
+#dkjlnrxiya .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3858,7 +3850,7 @@ from         event-free prostate other
   border-top-color: #D3D3D3;
 }
 
-#dlnhbuqtyh .gt_last_grand_summary_row_top {
+#dkjlnrxiya .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3868,11 +3860,11 @@ from         event-free prostate other
   border-bottom-color: #D3D3D3;
 }
 
-#dlnhbuqtyh .gt_striped {
+#dkjlnrxiya .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dlnhbuqtyh .gt_table_body {
+#dkjlnrxiya .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3881,7 +3873,7 @@ from         event-free prostate other
   border-bottom-color: #D3D3D3;
 }
 
-#dlnhbuqtyh .gt_footnotes {
+#dkjlnrxiya .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3895,7 +3887,7 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#dlnhbuqtyh .gt_footnote {
+#dkjlnrxiya .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3904,7 +3896,7 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#dlnhbuqtyh .gt_sourcenotes {
+#dkjlnrxiya .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3918,7 +3910,7 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#dlnhbuqtyh .gt_sourcenote {
+#dkjlnrxiya .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3926,63 +3918,63 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#dlnhbuqtyh .gt_left {
+#dkjlnrxiya .gt_left {
   text-align: left;
 }
 
-#dlnhbuqtyh .gt_center {
+#dkjlnrxiya .gt_center {
   text-align: center;
 }
 
-#dlnhbuqtyh .gt_right {
+#dkjlnrxiya .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dlnhbuqtyh .gt_font_normal {
+#dkjlnrxiya .gt_font_normal {
   font-weight: normal;
 }
 
-#dlnhbuqtyh .gt_font_bold {
+#dkjlnrxiya .gt_font_bold {
   font-weight: bold;
 }
 
-#dlnhbuqtyh .gt_font_italic {
+#dkjlnrxiya .gt_font_italic {
   font-style: italic;
 }
 
-#dlnhbuqtyh .gt_super {
+#dkjlnrxiya .gt_super {
   font-size: 65%;
 }
 
-#dlnhbuqtyh .gt_footnote_marks {
+#dkjlnrxiya .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dlnhbuqtyh .gt_asterisk {
+#dkjlnrxiya .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dlnhbuqtyh .gt_indent_1 {
+#dkjlnrxiya .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dlnhbuqtyh .gt_indent_2 {
+#dkjlnrxiya .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dlnhbuqtyh .gt_indent_3 {
+#dkjlnrxiya .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dlnhbuqtyh .gt_indent_4 {
+#dkjlnrxiya .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dlnhbuqtyh .gt_indent_5 {
+#dkjlnrxiya .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -4049,27 +4041,27 @@ from         event-free prostate other
 </div>
 </div>
 </div>
-<p>Table <span class="citation" data-cites="tab-compcancer">(<a href="#ref-tab-compcancer" role="doc-biblioref"><strong>tab-compcancer?</strong></a>)</span> shows the estimates of the effect of grade, age group, and stage on the hazard of death from prostate cancer. The hazard of death from prostate cancer increases for patients with a poor grade.</p>
+<p>The table shows the estimates of the effect of grade, age group, and stage on the hazard of death from prostate cancer. The hazard of death from prostate cancer increases for patients with a poor grade.</p>
 <p>Now, let’s look at the effect of grade, age group, and stage on the hazard of death from other causes.</p>
-<div class="cell">
+<div id="tbl-compother" class="cell anchored">
 <div class="cell-output-display">
-<div id="hsvmbcypqz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hsvmbcypqz table {
+<div id="fuifciyoql" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fuifciyoql table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hsvmbcypqz thead, #hsvmbcypqz tbody, #hsvmbcypqz tfoot, #hsvmbcypqz tr, #hsvmbcypqz td, #hsvmbcypqz th {
+#fuifciyoql thead, #fuifciyoql tbody, #fuifciyoql tfoot, #fuifciyoql tr, #fuifciyoql td, #fuifciyoql th {
   border-style: none;
 }
 
-#hsvmbcypqz p {
+#fuifciyoql p {
   margin: 0;
   padding: 0;
 }
 
-#hsvmbcypqz .gt_table {
+#fuifciyoql .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4095,12 +4087,12 @@ from         event-free prostate other
   border-left-color: #D3D3D3;
 }
 
-#hsvmbcypqz .gt_caption {
+#fuifciyoql .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hsvmbcypqz .gt_title {
+#fuifciyoql .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4112,7 +4104,7 @@ from         event-free prostate other
   border-bottom-width: 0;
 }
 
-#hsvmbcypqz .gt_subtitle {
+#fuifciyoql .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4124,7 +4116,7 @@ from         event-free prostate other
   border-top-width: 0;
 }
 
-#hsvmbcypqz .gt_heading {
+#fuifciyoql .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4136,13 +4128,13 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#hsvmbcypqz .gt_bottom_border {
+#fuifciyoql .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hsvmbcypqz .gt_col_headings {
+#fuifciyoql .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4157,7 +4149,7 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#hsvmbcypqz .gt_col_heading {
+#fuifciyoql .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4177,7 +4169,7 @@ from         event-free prostate other
   overflow-x: hidden;
 }
 
-#hsvmbcypqz .gt_column_spanner_outer {
+#fuifciyoql .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4189,15 +4181,15 @@ from         event-free prostate other
   padding-right: 4px;
 }
 
-#hsvmbcypqz .gt_column_spanner_outer:first-child {
+#fuifciyoql .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hsvmbcypqz .gt_column_spanner_outer:last-child {
+#fuifciyoql .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hsvmbcypqz .gt_column_spanner {
+#fuifciyoql .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4209,11 +4201,11 @@ from         event-free prostate other
   width: 100%;
 }
 
-#hsvmbcypqz .gt_spanner_row {
+#fuifciyoql .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hsvmbcypqz .gt_group_heading {
+#fuifciyoql .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4239,7 +4231,7 @@ from         event-free prostate other
   text-align: left;
 }
 
-#hsvmbcypqz .gt_empty_group_heading {
+#fuifciyoql .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4254,15 +4246,15 @@ from         event-free prostate other
   vertical-align: middle;
 }
 
-#hsvmbcypqz .gt_from_md > :first-child {
+#fuifciyoql .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hsvmbcypqz .gt_from_md > :last-child {
+#fuifciyoql .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hsvmbcypqz .gt_row {
+#fuifciyoql .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4281,7 +4273,7 @@ from         event-free prostate other
   overflow-x: hidden;
 }
 
-#hsvmbcypqz .gt_stub {
+#fuifciyoql .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4294,7 +4286,7 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#hsvmbcypqz .gt_stub_row_group {
+#fuifciyoql .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4308,15 +4300,15 @@ from         event-free prostate other
   vertical-align: top;
 }
 
-#hsvmbcypqz .gt_row_group_first td {
+#fuifciyoql .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hsvmbcypqz .gt_row_group_first th {
+#fuifciyoql .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hsvmbcypqz .gt_summary_row {
+#fuifciyoql .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4326,16 +4318,16 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#hsvmbcypqz .gt_first_summary_row {
+#fuifciyoql .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hsvmbcypqz .gt_first_summary_row.thick {
+#fuifciyoql .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hsvmbcypqz .gt_last_summary_row {
+#fuifciyoql .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4345,7 +4337,7 @@ from         event-free prostate other
   border-bottom-color: #D3D3D3;
 }
 
-#hsvmbcypqz .gt_grand_summary_row {
+#fuifciyoql .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4355,7 +4347,7 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#hsvmbcypqz .gt_first_grand_summary_row {
+#fuifciyoql .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4365,7 +4357,7 @@ from         event-free prostate other
   border-top-color: #D3D3D3;
 }
 
-#hsvmbcypqz .gt_last_grand_summary_row_top {
+#fuifciyoql .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4375,11 +4367,11 @@ from         event-free prostate other
   border-bottom-color: #D3D3D3;
 }
 
-#hsvmbcypqz .gt_striped {
+#fuifciyoql .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hsvmbcypqz .gt_table_body {
+#fuifciyoql .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4388,7 +4380,7 @@ from         event-free prostate other
   border-bottom-color: #D3D3D3;
 }
 
-#hsvmbcypqz .gt_footnotes {
+#fuifciyoql .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4402,7 +4394,7 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#hsvmbcypqz .gt_footnote {
+#fuifciyoql .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4411,7 +4403,7 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#hsvmbcypqz .gt_sourcenotes {
+#fuifciyoql .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4425,7 +4417,7 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#hsvmbcypqz .gt_sourcenote {
+#fuifciyoql .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4433,63 +4425,63 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#hsvmbcypqz .gt_left {
+#fuifciyoql .gt_left {
   text-align: left;
 }
 
-#hsvmbcypqz .gt_center {
+#fuifciyoql .gt_center {
   text-align: center;
 }
 
-#hsvmbcypqz .gt_right {
+#fuifciyoql .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hsvmbcypqz .gt_font_normal {
+#fuifciyoql .gt_font_normal {
   font-weight: normal;
 }
 
-#hsvmbcypqz .gt_font_bold {
+#fuifciyoql .gt_font_bold {
   font-weight: bold;
 }
 
-#hsvmbcypqz .gt_font_italic {
+#fuifciyoql .gt_font_italic {
   font-style: italic;
 }
 
-#hsvmbcypqz .gt_super {
+#fuifciyoql .gt_super {
   font-size: 65%;
 }
 
-#hsvmbcypqz .gt_footnote_marks {
+#fuifciyoql .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hsvmbcypqz .gt_asterisk {
+#fuifciyoql .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hsvmbcypqz .gt_indent_1 {
+#fuifciyoql .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hsvmbcypqz .gt_indent_2 {
+#fuifciyoql .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hsvmbcypqz .gt_indent_3 {
+#fuifciyoql .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hsvmbcypqz .gt_indent_4 {
+#fuifciyoql .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hsvmbcypqz .gt_indent_5 {
+#fuifciyoql .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -4556,26 +4548,26 @@ from         event-free prostate other
 </div>
 </div>
 </div>
-<p>In table <span class="citation" data-cites="tab-compother">(<a href="#ref-tab-compother" role="doc-biblioref"><strong>tab-compother?</strong></a>)</span>, we see the estimates of the effect of grade, age group, and stage on the hazard of death from other causes. The hazard of death from other causes increases for patients with a poor grade but the exp coef is much smaller than that of prostate cancer. The question is then, is there a difference in this effect? Let’s test this using Putter et al.’s method.</p>
-<div class="cell">
+<p>In this table, we see the estimates of the effect of grade, age group, and stage on the hazard of death from other causes. The hazard of death from other causes increases for patients with a poor grade but the exp coef is much smaller than that of prostate cancer. The question is then, is there a difference in this effect? Let’s test this using Putter et al.’s method.</p>
+<div id="tbl-compputter" class="cell anchored">
 <div class="cell-output-display">
-<div id="paejewzqur" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#paejewzqur table {
+<div id="uxzmqezdfs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#uxzmqezdfs table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#paejewzqur thead, #paejewzqur tbody, #paejewzqur tfoot, #paejewzqur tr, #paejewzqur td, #paejewzqur th {
+#uxzmqezdfs thead, #uxzmqezdfs tbody, #uxzmqezdfs tfoot, #uxzmqezdfs tr, #uxzmqezdfs td, #uxzmqezdfs th {
   border-style: none;
 }
 
-#paejewzqur p {
+#uxzmqezdfs p {
   margin: 0;
   padding: 0;
 }
 
-#paejewzqur .gt_table {
+#uxzmqezdfs .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4601,12 +4593,12 @@ from         event-free prostate other
   border-left-color: #D3D3D3;
 }
 
-#paejewzqur .gt_caption {
+#uxzmqezdfs .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#paejewzqur .gt_title {
+#uxzmqezdfs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4618,7 +4610,7 @@ from         event-free prostate other
   border-bottom-width: 0;
 }
 
-#paejewzqur .gt_subtitle {
+#uxzmqezdfs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4630,7 +4622,7 @@ from         event-free prostate other
   border-top-width: 0;
 }
 
-#paejewzqur .gt_heading {
+#uxzmqezdfs .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4642,13 +4634,13 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#paejewzqur .gt_bottom_border {
+#uxzmqezdfs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#paejewzqur .gt_col_headings {
+#uxzmqezdfs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4663,7 +4655,7 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#paejewzqur .gt_col_heading {
+#uxzmqezdfs .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4683,7 +4675,7 @@ from         event-free prostate other
   overflow-x: hidden;
 }
 
-#paejewzqur .gt_column_spanner_outer {
+#uxzmqezdfs .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4695,15 +4687,15 @@ from         event-free prostate other
   padding-right: 4px;
 }
 
-#paejewzqur .gt_column_spanner_outer:first-child {
+#uxzmqezdfs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#paejewzqur .gt_column_spanner_outer:last-child {
+#uxzmqezdfs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#paejewzqur .gt_column_spanner {
+#uxzmqezdfs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4715,11 +4707,11 @@ from         event-free prostate other
   width: 100%;
 }
 
-#paejewzqur .gt_spanner_row {
+#uxzmqezdfs .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#paejewzqur .gt_group_heading {
+#uxzmqezdfs .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4745,7 +4737,7 @@ from         event-free prostate other
   text-align: left;
 }
 
-#paejewzqur .gt_empty_group_heading {
+#uxzmqezdfs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4760,15 +4752,15 @@ from         event-free prostate other
   vertical-align: middle;
 }
 
-#paejewzqur .gt_from_md > :first-child {
+#uxzmqezdfs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#paejewzqur .gt_from_md > :last-child {
+#uxzmqezdfs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#paejewzqur .gt_row {
+#uxzmqezdfs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4787,7 +4779,7 @@ from         event-free prostate other
   overflow-x: hidden;
 }
 
-#paejewzqur .gt_stub {
+#uxzmqezdfs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4800,7 +4792,7 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#paejewzqur .gt_stub_row_group {
+#uxzmqezdfs .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4814,15 +4806,15 @@ from         event-free prostate other
   vertical-align: top;
 }
 
-#paejewzqur .gt_row_group_first td {
+#uxzmqezdfs .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#paejewzqur .gt_row_group_first th {
+#uxzmqezdfs .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#paejewzqur .gt_summary_row {
+#uxzmqezdfs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4832,16 +4824,16 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#paejewzqur .gt_first_summary_row {
+#uxzmqezdfs .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#paejewzqur .gt_first_summary_row.thick {
+#uxzmqezdfs .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#paejewzqur .gt_last_summary_row {
+#uxzmqezdfs .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4851,7 +4843,7 @@ from         event-free prostate other
   border-bottom-color: #D3D3D3;
 }
 
-#paejewzqur .gt_grand_summary_row {
+#uxzmqezdfs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4861,7 +4853,7 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#paejewzqur .gt_first_grand_summary_row {
+#uxzmqezdfs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4871,7 +4863,7 @@ from         event-free prostate other
   border-top-color: #D3D3D3;
 }
 
-#paejewzqur .gt_last_grand_summary_row_top {
+#uxzmqezdfs .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4881,11 +4873,11 @@ from         event-free prostate other
   border-bottom-color: #D3D3D3;
 }
 
-#paejewzqur .gt_striped {
+#uxzmqezdfs .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#paejewzqur .gt_table_body {
+#uxzmqezdfs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4894,7 +4886,7 @@ from         event-free prostate other
   border-bottom-color: #D3D3D3;
 }
 
-#paejewzqur .gt_footnotes {
+#uxzmqezdfs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4908,7 +4900,7 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#paejewzqur .gt_footnote {
+#uxzmqezdfs .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4917,7 +4909,7 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#paejewzqur .gt_sourcenotes {
+#uxzmqezdfs .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4931,7 +4923,7 @@ from         event-free prostate other
   border-right-color: #D3D3D3;
 }
 
-#paejewzqur .gt_sourcenote {
+#uxzmqezdfs .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4939,63 +4931,63 @@ from         event-free prostate other
   padding-right: 5px;
 }
 
-#paejewzqur .gt_left {
+#uxzmqezdfs .gt_left {
   text-align: left;
 }
 
-#paejewzqur .gt_center {
+#uxzmqezdfs .gt_center {
   text-align: center;
 }
 
-#paejewzqur .gt_right {
+#uxzmqezdfs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#paejewzqur .gt_font_normal {
+#uxzmqezdfs .gt_font_normal {
   font-weight: normal;
 }
 
-#paejewzqur .gt_font_bold {
+#uxzmqezdfs .gt_font_bold {
   font-weight: bold;
 }
 
-#paejewzqur .gt_font_italic {
+#uxzmqezdfs .gt_font_italic {
   font-style: italic;
 }
 
-#paejewzqur .gt_super {
+#uxzmqezdfs .gt_super {
   font-size: 65%;
 }
 
-#paejewzqur .gt_footnote_marks {
+#uxzmqezdfs .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#paejewzqur .gt_asterisk {
+#uxzmqezdfs .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#paejewzqur .gt_indent_1 {
+#uxzmqezdfs .gt_indent_1 {
   text-indent: 5px;
 }
 
-#paejewzqur .gt_indent_2 {
+#uxzmqezdfs .gt_indent_2 {
   text-indent: 10px;
 }
 
-#paejewzqur .gt_indent_3 {
+#uxzmqezdfs .gt_indent_3 {
   text-indent: 15px;
 }
 
-#paejewzqur .gt_indent_4 {
+#uxzmqezdfs .gt_indent_4 {
   text-indent: 20px;
 }
 
-#paejewzqur .gt_indent_5 {
+#uxzmqezdfs .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -5076,11 +5068,10 @@ from         event-free prostate other
 </div>
 </div>
 </div>
-<p>Table <span class="citation" data-cites="tab-compputter">(<a href="#ref-tab-compputter" role="doc-biblioref"><strong>tab-compputter?</strong></a>)</span> shows the estimates of the competing risk analysis using Putter et al.’s method. Of main interest is to look at the interaction between grade poor and trans. This interaction term estimates the difference between the effect on prostate cancer death and death from other causes. The estimate is highly significant and represents the additional effect poor grade has on the risk of death from other causes relative to its effect on the risk of prostate cancer death. The hazard of death fro other causes is is 0.27 times the hazard of death from prostate cancer.</p>
+<p>This last table shows the estimates of the competing risk analysis using Putter et al.’s method. Of main interest is to look at the interaction between grade poor and trans. This interaction term estimates the difference between the effect on prostate cancer death and death from other causes. The estimate is highly significant and represents the additional effect poor grade has on the risk of death from other causes relative to its effect on the risk of prostate cancer death. The hazard of death fro other causes is is 0.27 times the hazard of death from prostate cancer.</p>
 <p>To conclude, this analysis has shown that a poor grade of prostate cancer strongly affects the risk of dying from prostate cancer. This effect is also much stronger on the risk of dying from prostate cancer than from other causes. The analysis also shows that the risk of dying from other causes is higher for older patients and for patients with more advanced stages of prostate cancer.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
