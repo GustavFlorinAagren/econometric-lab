@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gustavflorinaagren.github.io/econometric-lab/index.html</loc>
-    <lastmod>2024-07-29T13:56:03.054Z</lastmod>
+    <lastmod>2024-07-29T14:18:31.556Z</lastmod>
   </url>
   <url>
     <loc>https://gustavflorinaagren.github.io/econometric-lab/01-intro-how-we-work.html</loc>
@@ -51,5 +51,9 @@
   <url>
     <loc>https://gustavflorinaagren.github.io/econometric-lab/12-umassd-resources.html</loc>
     <lastmod>2024-07-29T12:54:52.407Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gustavflorinaagren.github.io/econometric-lab/13-survival-analysis.html</loc>
+    <lastmod>2024-07-29T14:19:54.704Z</lastmod>
   </url>
 </urlset>
