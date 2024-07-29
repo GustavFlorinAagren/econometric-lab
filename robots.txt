@@ -1,1 +1,1 @@
-Sitemap: https://thefaylab.github.io/lab-manual/sitemap.xml
+Sitemap: https://gustavflorinaagren.github.io/econometric-lab/sitemap.xml
