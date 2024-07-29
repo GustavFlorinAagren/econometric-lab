@@ -21,27 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -51,7 +65,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02-Survival-analysis.html" rel="next">
+<link href="./02-Logit-probit.html" rel="next">
 <link href="./Old-school-econometrics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -120,6 +134,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -182,14 +197,20 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./02-Logit-probit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">02-Logit-probit.html</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./02-Survival-analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Survival analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Survival analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-Selection-correction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Selection correction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Selection correction</span></span></a>
   </div>
 </li>
       </ul>
@@ -206,25 +227,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04-Diff-n-diff.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Difference-in-differences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Difference-in-differences</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-RD.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression Discontinuity</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression Discontinuity</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-IV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Instrumental Variable</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Instrumental Variable</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-Synthetic-control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Synthetic Control</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Synthetic Control</span></span></a>
   </div>
 </li>
       </ul>
@@ -241,19 +262,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-Regularisation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regularisation using Ridge and Lasso</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Regularisation using Ridge and Lasso</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-Tree-based.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Tree-based models</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Tree-based models</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10-SVM.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Support Vector Machines</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Support Vector Machines</span></span></a>
   </div>
 </li>
       </ul>
@@ -268,11 +289,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#how-we-meet" id="toc-how-we-meet" class="nav-link active" data-scroll-target="#how-we-meet"><span class="header-section-number">2.1</span> How we meet</a></li>
-  <li><a href="#how-we-give-feedback" id="toc-how-we-give-feedback" class="nav-link" data-scroll-target="#how-we-give-feedback"><span class="header-section-number">2.2</span> How we give feedback</a></li>
-  <li><a href="#how-we-share-things-and-send-them-to-gavin" id="toc-how-we-share-things-and-send-them-to-gavin" class="nav-link" data-scroll-target="#how-we-share-things-and-send-them-to-gavin"><span class="header-section-number">2.3</span> How we share things (and send them to Gavin)</a></li>
-  <li><a href="#shared-lab-resources" id="toc-shared-lab-resources" class="nav-link" data-scroll-target="#shared-lab-resources"><span class="header-section-number">2.4</span> Shared lab resources</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2.5</span> References</a></li>
+  <li><a href="#assignment-1-gustav-florin-ågren-december-2023" id="toc-assignment-1-gustav-florin-ågren-december-2023" class="nav-link active" data-scroll-target="#assignment-1-gustav-florin-ågren-december-2023"><span class="header-section-number">2.1</span> Assignment 1 Gustav Florin Ågren December 2023</a></li>
+  <li><a href="#the-boston-data-set" id="toc-the-boston-data-set" class="nav-link" data-scroll-target="#the-boston-data-set"><span class="header-section-number">2.2</span> The boston data set</a></li>
+  <li><a href="#predict-per-capita-crime-rate-using-best-subset-selection" id="toc-predict-per-capita-crime-rate-using-best-subset-selection" class="nav-link" data-scroll-target="#predict-per-capita-crime-rate-using-best-subset-selection"><span class="header-section-number">2.3</span> Predict per capita crime rate using best subset selection</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2.4</span> References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/GustavFlorinAagren/econometric-lab/edit/main/01-Linear-regression.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/GustavFlorinAagren/econometric-lab/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -300,48 +320,1225 @@ window.Quarto = {
 
 <p>We do rigorous quantitative science to support decision-making for living marine resource management. We conduct our work using Open Data Science principles, emphasizing scientific excellence (not perfection) that is transparent, reproducible, collaborative, and ethical. We aim to make our methods and results available and support ongoing learning.<br>
 Our quantitative work is based on statistical thinking, using evidence-based approaches to compare among alternatives for models and management options.</p>
-<p>See the next chapter for more detail on our lab culture and philosophy. We are motivated heavily by the following two papers - which provide a blueprint for how we think about the way we do our work:</p>
-<ul>
-<li>Our path to better science in less time using open data science tools <span class="citation" data-cites="lowndes2017">(<a href="#ref-lowndes2017" role="doc-biblioref">Lowndes et al. 2017</a>)</span></li>
-<li>Good enough practices in scientific computing <span class="citation" data-cites="wilson2017">(<a href="#ref-wilson2017" role="doc-biblioref">Wilson et al. 2017</a>)</span></li>
-</ul>
-<p>[To come: recommended reading list]</p>
-<section id="how-we-meet" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="how-we-meet"><span class="header-section-number">2.1</span> How we meet</h2>
-<p>Currently, we meet virtually by Zoom for weekly lab meetings, individual meetings with Gavin, and our Shut Up and Write session.<br>
-We use Googledocs to set agendas, record decisions made, and outline action items during meetings. Each lab member has their own google doc for their 1:1 meetings with Gavin. Prior to each meeting, create your agenda for that meeting there.</p>
+<section id="assignment-1-gustav-florin-ågren-december-2023" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="assignment-1-gustav-florin-ågren-december-2023"><span class="header-section-number">2.1</span> Assignment 1 Gustav Florin Ågren December 2023</h2>
+<p>This is a report trying to examine and fit the data set Boston.</p>
 </section>
-<section id="how-we-give-feedback" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="how-we-give-feedback"><span class="header-section-number">2.2</span> How we give feedback</h2>
-<p>Feedback, both giving and receiving it, is an important aspect of our lab. Most of the feedback we give and receive is when giving and attending practice talks. We expect feedback to be supportive but constructive.</p>
-<p>This <a href="https://scwrl.ubc.ca/student-resources/learning-strategies-for-communicating-science/how-to-give-and-receive-effective-feedback/">resource from UBC</a> does a really great job of outlining the main points of how to give and receive feedback.</p>
+<section id="the-boston-data-set" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="the-boston-data-set"><span class="header-section-number">2.2</span> The boston data set</h2>
+<p>The data set which this report will make use of contains information collected by the U.S. Census Service concerning housing and crime rates in Boston (ref: <a href="https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html" class="uri">https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html</a>).</p>
+<p>The variables in the data set are:<br>
+(create table of all variables and short description of them)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the table using gt</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>variable_descriptions <span class="sc">%&gt;%</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="st">"Variables"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="wihxwascbx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wihxwascbx table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#wihxwascbx thead, #wihxwascbx tbody, #wihxwascbx tfoot, #wihxwascbx tr, #wihxwascbx td, #wihxwascbx th {
+  border-style: none;
+}
+
+#wihxwascbx p {
+  margin: 0;
+  padding: 0;
+}
+
+#wihxwascbx .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#wihxwascbx .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#wihxwascbx .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wihxwascbx .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wihxwascbx .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wihxwascbx .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wihxwascbx .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wihxwascbx .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#wihxwascbx .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#wihxwascbx .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#wihxwascbx .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#wihxwascbx .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#wihxwascbx .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#wihxwascbx .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#wihxwascbx .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wihxwascbx .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wihxwascbx .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wihxwascbx .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#wihxwascbx .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wihxwascbx .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#wihxwascbx .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#wihxwascbx .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#wihxwascbx .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wihxwascbx .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#wihxwascbx .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#wihxwascbx .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wihxwascbx .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wihxwascbx .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#wihxwascbx .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wihxwascbx .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#wihxwascbx .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wihxwascbx .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wihxwascbx .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wihxwascbx .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wihxwascbx .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wihxwascbx .gt_left {
+  text-align: left;
+}
+
+#wihxwascbx .gt_center {
+  text-align: center;
+}
+
+#wihxwascbx .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wihxwascbx .gt_font_normal {
+  font-weight: normal;
+}
+
+#wihxwascbx .gt_font_bold {
+  font-weight: bold;
+}
+
+#wihxwascbx .gt_font_italic {
+  font-style: italic;
+}
+
+#wihxwascbx .gt_super {
+  font-size: 65%;
+}
+
+#wihxwascbx .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#wihxwascbx .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#wihxwascbx .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#wihxwascbx .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#wihxwascbx .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#wihxwascbx .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#wihxwascbx .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="2" class="gt_heading gt_title gt_font_normal gt_bottom_border">Variables</th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="Variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Variable</th>
+<th id="Description" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Description</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">crim</td>
+<td class="gt_row gt_left" headers="Description">Per capita crime rate by town</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Variable">zn</td>
+<td class="gt_row gt_left" headers="Description">Proportion of residential land zoned for lots over 25,000 sq. ft.</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">indus</td>
+<td class="gt_row gt_left" headers="Description">Proportion of non-retail business acres per town</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Variable">chas</td>
+<td class="gt_row gt_left" headers="Description">Charles River dummy variable (1 if tract bounds river; 0 otherwise)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">nox</td>
+<td class="gt_row gt_left" headers="Description">Nitric oxides concentration (parts per 10 million)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Variable">rm</td>
+<td class="gt_row gt_left" headers="Description">Average number of rooms per dwelling</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">age</td>
+<td class="gt_row gt_left" headers="Description">Proportion of owner-occupied units built prior to 1940</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Variable">dis</td>
+<td class="gt_row gt_left" headers="Description">Weighted distances to five Boston employment centers</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">rad</td>
+<td class="gt_row gt_left" headers="Description">Index of accessibility to radial highways</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Variable">tax</td>
+<td class="gt_row gt_left" headers="Description">Full-value property tax rate per $10,000</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">ptratio</td>
+<td class="gt_row gt_left" headers="Description">Pupil-teacher ratio by town</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="Variable">lstat</td>
+<td class="gt_row gt_left" headers="Description">% lower status of the population</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">medv</td>
+<td class="gt_row gt_left" headers="Description">Median value of owner-occupied homes in $1000's</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 </section>
-<section id="how-we-share-things-and-send-them-to-gavin" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="how-we-share-things-and-send-them-to-gavin"><span class="header-section-number">2.3</span> How we share things (and send them to Gavin)</h2>
-<p>We think it is useful to have standard ways of sharing things. These don’t always have to be followed but are a useful guide and will make things easier. When sending material to someone, always make sure to describe what you are sending and try to make it as easy as possible for them to help you.</p>
-<p>Taking a project-based approach to organizing your work makes it easier to share and solicit feedback from others, as things tend to be self-contained. Try to keep only 1 working instance of material, and use some form of version control to facilitate this (see recommendations in Wilson et. al paper linked above).</p>
-<p>Project management tools in Github are a good way to record and document questions on analyses. Use ‘Issues’ on github repositories for project-related tasks and problems. Alternatively, make use of a GoogleDoc for each project to record this history, much like you would a lab notebook.</p>
-<p>Code: can be shared via Github repositories, or via a dedicated Google Drive folder. For specific questions on problems, please try to create a minimal reproducible example. Ensure that others can run and interact with the material being shared.</p>
-<p>Writing: Preferably via GoogleDoc, R Markdown, or Overleaf, but MS Word documents can also be shared. Google docs are particularly useful for collaborative writing, and have the advantage of there only ever being one version (as opposed to files that are sent around via email). Word documents should always have your last name as the first part of the file name (e.g.&nbsp;please no “mythesis.doc”).</p>
-<p>We also share our institutional knowledge through our lab-chat github ‘issues’ repository. This is a community-driven troubleshooting resource, please contribute!</p>
-<p>We maintain a lab Google Drive folder for lab publications, presentations, photos, CVs, etc. Please make use of these so that others in the lab can make fair use of our work.</p>
+<section id="predict-per-capita-crime-rate-using-best-subset-selection" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="predict-per-capita-crime-rate-using-best-subset-selection"><span class="header-section-number">2.3</span> Predict per capita crime rate using best subset selection</h2>
+<p>We will now try to predict the per capita crime rate using best subset selection. We will first split the data into a training set and a test set. We will then fit a separate least squares regression to the training set for each possible combination of the 13 predictors. Then, we will use the <code>regsubsets()</code> function from the <code>leaps</code> library to perform best subset selection.</p>
+<p>Because there is no <code>predict()</code> method for <code>regsubsets()</code> we have to create the same function ourselves. This function takes in the <code>regsubsets</code> object and the data set, and returns the predictions for the best model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a> predict.regsubsets <span class="ot">&lt;-</span> <span class="cf">function</span>(object, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                                newdata, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                                id, ...) {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  form <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(object<span class="sc">$</span>call[[<span class="dv">2</span>]])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  mat <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(form, newdata)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  coefi <span class="ot">&lt;-</span> <span class="fu">coef</span>(object, <span class="at">id =</span> id)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  xvars <span class="ot">&lt;-</span> <span class="fu">names</span>(coefi)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  mat[, xvars] <span class="sc">%*%</span> coefi</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a> }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we will try to choose among the models of different sizes using cross-validation. This approach is somewhat involved, as we must perform best subset selection <em>within each of the</em> <span class="math inline">\(k\)</span> training sets.</p>
+<p>First, we create a vector that allocates each observation to one of <span class="math inline">\(k=10\)</span> folds, and create a matrix in which we will store the results.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(Boston)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>folds <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>k, <span class="at">length =</span> n))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>cv.errors <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA</span>, k, <span class="dv">12</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="cn">NULL</span>, <span class="fu">paste</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we use a for loop to perform cross-validation. In the <span class="math inline">\(j\)</span>th fold, the elements of <code>folds</code> that equal <code>j</code> are in the test set, and the remainder are in the training set. We make our predictions for each model size (using our new <code>predict()</code> method), compute the test errors on the appropriate subset, and store them in the appropriate slot in the matrix <code>cv.errors</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>k) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  best.fit <span class="ot">&lt;-</span> <span class="fu">regsubsets</span>(crim <span class="sc">~</span> .,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> Boston[folds <span class="sc">!=</span> j, ],</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">nvmax =</span> <span class="dv">12</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) {</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(best.fit, Boston[folds <span class="sc">==</span> j, ], <span class="at">id =</span> i)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    cv.errors[j, i] <span class="ot">&lt;-</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>         <span class="fu">mean</span>((Boston<span class="sc">$</span>crim[folds <span class="sc">==</span> j] <span class="sc">-</span> pred)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a> }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This has given us a <span class="math inline">\(10 \times 12\)</span> matrix, of which the <span class="math inline">\((j,i)\)</span>th element corresponds to the test MSE for the <span class="math inline">\(j\)</span>th cross-validation fold for the best <span class="math inline">\(i\)</span>-variable model. I use the <code>apply()</code> function to average over the columns of this matrix in order to obtain a vector for which the <span class="math inline">\(i\)</span>th element is the cross-validation error for the <span class="math inline">\(i\)</span>-variable model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mean.cv.errors <span class="ot">&lt;-</span> <span class="fu">apply</span>(cv.errors, <span class="dv">2</span>, mean)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mean.cv.errors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1        2        3        4        5        6        7        8 
+46.00617 44.22854 44.41638 43.05242 43.47254 43.27042 43.01362 42.91980 
+       9       10       11       12 
+42.75855 42.75734 42.67672 42.71781 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which.min</span>(mean.cv.errors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>11 
+11 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(mean.cv.errors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42.67672</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean.cv.errors, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">"b"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01-Linear-regression_files/figure-html/errors-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>data_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">index =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(mean.cv.errors), </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">value =</span> mean.cv.errors)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Index to highlight</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>highlight_index <span class="ot">&lt;-</span> <span class="fu">which.min</span>(mean.cv.errors)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Set specific breaks on the x-axis</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>custom_breaks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>cv.plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data_df, </span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> index, </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_npg</span>() <span class="sc">+</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">index =</span> highlight_index, <span class="at">value =</span> data_df<span class="sc">$</span>value[highlight_index]),</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> index, </span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> value), </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>, </span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> <span class="dv">19</span>, </span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Predictors"</span>, </span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Mean CV Errors"</span>) <span class="sc">+</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> custom_breaks) <span class="sc">+</span>  <span class="co"># Set custom breaks on the x-axis</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>))</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>cv.plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01-Linear-regression_files/figure-html/better plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"/Users/gustavaagren/Documents/Statistik/Statistisk inlärning/Assignment/cv.pdf"</span>,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">100</span>, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">18</span>, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">12</span>, </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"cm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We see that cross-validation selects a 11-variable model. Now we cab perform the best subset selection on the full data set in order to obtain the best 11-variable model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>reg.best <span class="ot">&lt;-</span> <span class="fu">regsubsets</span>(crim <span class="sc">~</span> ., </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">data =</span> Boston,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">nvmax =</span> <span class="dv">13</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>bestsub <span class="ot">&lt;-</span> <span class="fu">coef</span>(reg.best, <span class="dv">11</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(reg.best, <span class="dv">11</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  (Intercept)            zn         indus          chas           nox 
+ 13.801555544   0.045818028  -0.058345869  -0.828283847 -10.022404078 
+           rm           dis           rad           tax       ptratio 
+  0.623650191  -1.008539667   0.612822152  -0.003782956  -0.304784434 
+        lstat          medv 
+  0.137698956  -0.220092318 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create model with the 11 best predictors</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(crim <span class="sc">~</span> zn <span class="sc">+</span> indus <span class="sc">+</span> chas <span class="sc">+</span> nox <span class="sc">+</span> rm  <span class="sc">+</span> dis <span class="sc">+</span> rad <span class="sc">+</span> tax <span class="sc">+</span> ptratio <span class="sc">+</span> lstat <span class="sc">+</span> medv, <span class="at">data =</span> Boston)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Round the coefficients, SE's, statistics and p-value to 2 decimals</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>model<span class="sc">$</span>coefficients <span class="ot">&lt;-</span> <span class="fu">round</span>(model<span class="sc">$</span>coefficients, <span class="dv">2</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Present model in a table using gt and round all values to two digits</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>model <span class="sc">%&gt;%</span> </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="st">"Model with 11 best predictors"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="aoevuykzlt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#aoevuykzlt table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#aoevuykzlt thead, #aoevuykzlt tbody, #aoevuykzlt tfoot, #aoevuykzlt tr, #aoevuykzlt td, #aoevuykzlt th {
+  border-style: none;
+}
+
+#aoevuykzlt p {
+  margin: 0;
+  padding: 0;
+}
+
+#aoevuykzlt .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#aoevuykzlt .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#aoevuykzlt .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#aoevuykzlt .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#aoevuykzlt .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#aoevuykzlt .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#aoevuykzlt .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#aoevuykzlt .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#aoevuykzlt .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#aoevuykzlt .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#aoevuykzlt .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#aoevuykzlt .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#aoevuykzlt .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#aoevuykzlt .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#aoevuykzlt .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#aoevuykzlt .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#aoevuykzlt .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#aoevuykzlt .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#aoevuykzlt .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aoevuykzlt .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#aoevuykzlt .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#aoevuykzlt .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#aoevuykzlt .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aoevuykzlt .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#aoevuykzlt .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#aoevuykzlt .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#aoevuykzlt .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aoevuykzlt .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#aoevuykzlt .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#aoevuykzlt .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#aoevuykzlt .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#aoevuykzlt .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#aoevuykzlt .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aoevuykzlt .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#aoevuykzlt .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aoevuykzlt .gt_left {
+  text-align: left;
+}
+
+#aoevuykzlt .gt_center {
+  text-align: center;
+}
+
+#aoevuykzlt .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#aoevuykzlt .gt_font_normal {
+  font-weight: normal;
+}
+
+#aoevuykzlt .gt_font_bold {
+  font-weight: bold;
+}
+
+#aoevuykzlt .gt_font_italic {
+  font-style: italic;
+}
+
+#aoevuykzlt .gt_super {
+  font-size: 65%;
+}
+
+#aoevuykzlt .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#aoevuykzlt .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#aoevuykzlt .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#aoevuykzlt .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#aoevuykzlt .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#aoevuykzlt .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#aoevuykzlt .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_heading">
+<th colspan="5" class="gt_heading gt_title gt_font_normal gt_bottom_border">Model with 11 best predictors</th>
+</tr>
+<tr class="odd gt_col_headings">
+<th id="term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">term</th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">estimate</th>
+<th id="std.error" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">std.error</th>
+<th id="statistic" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">statistic</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p.value</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">(Intercept)</td>
+<td class="gt_row gt_right" headers="estimate">13.80</td>
+<td class="gt_row gt_right" headers="std.error">7.05771079</td>
+<td class="gt_row gt_right" headers="statistic">1.9553082</td>
+<td class="gt_row gt_right" headers="p.value">5.111011e-02</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">zn</td>
+<td class="gt_row gt_right" headers="estimate">0.05</td>
+<td class="gt_row gt_right" headers="std.error">0.01863204</td>
+<td class="gt_row gt_right" headers="statistic">2.6835489</td>
+<td class="gt_row gt_right" headers="p.value">7.528970e-03</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">indus</td>
+<td class="gt_row gt_right" headers="estimate">-0.06</td>
+<td class="gt_row gt_right" headers="std.error">0.08355054</td>
+<td class="gt_row gt_right" headers="statistic">-0.7181282</td>
+<td class="gt_row gt_right" headers="p.value">4.730177e-01</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">chas</td>
+<td class="gt_row gt_right" headers="estimate">-0.83</td>
+<td class="gt_row gt_right" headers="std.error">1.18060343</td>
+<td class="gt_row gt_right" headers="statistic">-0.7030303</td>
+<td class="gt_row gt_right" headers="p.value">4.823680e-01</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">nox</td>
+<td class="gt_row gt_right" headers="estimate">-10.02</td>
+<td class="gt_row gt_right" headers="std.error">5.10379184</td>
+<td class="gt_row gt_right" headers="statistic">-1.9632462</td>
+<td class="gt_row gt_right" headers="p.value">5.017815e-02</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">rm</td>
+<td class="gt_row gt_right" headers="estimate">0.62</td>
+<td class="gt_row gt_right" headers="std.error">0.59619914</td>
+<td class="gt_row gt_right" headers="statistic">1.0399210</td>
+<td class="gt_row gt_right" headers="p.value">2.988853e-01</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">dis</td>
+<td class="gt_row gt_right" headers="estimate">-1.01</td>
+<td class="gt_row gt_right" headers="std.error">0.27108496</td>
+<td class="gt_row gt_right" headers="statistic">-3.7257693</td>
+<td class="gt_row gt_right" headers="p.value">2.172029e-04</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">rad</td>
+<td class="gt_row gt_right" headers="estimate">0.61</td>
+<td class="gt_row gt_right" headers="std.error">0.08712143</td>
+<td class="gt_row gt_right" headers="statistic">7.0017217</td>
+<td class="gt_row gt_right" headers="p.value">8.296249e-12</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">tax</td>
+<td class="gt_row gt_right" headers="estimate">0.00</td>
+<td class="gt_row gt_right" headers="std.error">0.00516481</td>
+<td class="gt_row gt_right" headers="statistic">0.0000000</td>
+<td class="gt_row gt_right" headers="p.value">1.000000e+00</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">ptratio</td>
+<td class="gt_row gt_right" headers="estimate">-0.30</td>
+<td class="gt_row gt_right" headers="std.error">0.18556279</td>
+<td class="gt_row gt_right" headers="statistic">-1.6167034</td>
+<td class="gt_row gt_right" headers="p.value">1.065807e-01</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">lstat</td>
+<td class="gt_row gt_right" headers="estimate">0.14</td>
+<td class="gt_row gt_right" headers="std.error">0.07197165</td>
+<td class="gt_row gt_right" headers="statistic">1.9452104</td>
+<td class="gt_row gt_right" headers="p.value">5.231662e-02</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">medv</td>
+<td class="gt_row gt_right" headers="estimate">-0.22</td>
+<td class="gt_row gt_right" headers="std.error">0.05975868</td>
+<td class="gt_row gt_right" headers="statistic">-3.6814738</td>
+<td class="gt_row gt_right" headers="p.value">2.574373e-04</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Using the best subset selection, we have been able to reduce ourselves to fewer predictors. The model with the 11 best predictors has an adjusted <span class="math inline">\(R^2\)</span> of 0.63, which is higher than the model with all predictors. Still, it’s not a very efficient model in the sense that it has many variables. More ways to reduce the number of predictors could be to use ridge regression or lasso regression. More about this in the machine learning section.</p>
 </section>
-<section id="shared-lab-resources" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="shared-lab-resources"><span class="header-section-number">2.4</span> Shared lab resources</h2>
-<p>Where to find shared resources: - Google Drive - You will be given access to the shared drive during onboarding, take a look at the Lab Meetings folder to find Lab Meeting Notes for each semester (previously called the Supercharge Plan) - GitHub - thefaylab is the shared GitHub account for the lab - lab-manual - This repository contains the lab manual, see section <span class="math inline">\(\ref{#umassd-resources}\)</span> for other useful resources and take a look at the <a href="https://github.com/thefaylab/lab-manual/wiki/Lab-Meeting-Schedule">Wiki</a> to see the lab meeting schedule - lab-chat - This repository contains shared institutional knowledge for the Fay lab, take a look at Issue #22 for Zoom meeting links - Website - Take a look at the lab website, most of its information is duplicated in one of the above resources: <a href="http://www.smast.umassd.edu/lab_fay/" class="uri">http://www.smast.umassd.edu/lab_fay/</a></p>
-</section>
-<section id="references" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="references"><span class="header-section-number">2.5</span> References</h2>
+<section id="references" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="references"><span class="header-section-number">2.4</span> References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-lowndes2017" class="csl-entry" role="listitem">
-Lowndes, Julia S. Stewart, Benjamin D. Best, Courtney Scarborough, Jamie C. Afflerbach, Melanie R. Frazier, Casey C. O’Hara, Ning Jiang, and Benjamin S. Halpern. 2017. <span>“Our Path to Better Science in Less Time Using Open Data Science Tools.”</span> <em>Nature Ecology &amp; Evolution</em> 1 (6). <a href="https://doi.org/10.1038/s41559-017-0160">https://doi.org/10.1038/s41559-017-0160</a>.
-</div>
-<div id="ref-wilson2017" class="csl-entry" role="listitem">
-Wilson, Greg, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, and Tracy K. Teal. 2017. <span>“Good Enough Practices in Scientific Computing.”</span> Edited by Francis Ouellette. <em>PLOS Computational Biology</em> 13 (6): e1005510. <a href="https://doi.org/10.1371/journal.pcbi.1005510">https://doi.org/10.1371/journal.pcbi.1005510</a>.
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -761,8 +1958,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-Survival-analysis.html" class="pagination-link" aria-label="Survival analysis">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Survival analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-Logit-probit.html" class="pagination-link" aria-label="02-Logit-probit.html">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">02-Logit-probit.html</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

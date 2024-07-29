@@ -1,0 +1,9 @@
+/* styles.css */
+.book-title::before {
+  content: url('William_of_Ockham.png');
+  display: block;
+  float: right;
+  margin-left: 20px;
+  margin-top: -60px;
+}
+ 
