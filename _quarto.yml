@@ -13,8 +13,8 @@ book:
       <a href="http://www.smast.umassd.edu/lab_fay/">The Fay lab</a>
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
-  site-url: https://thefaylab.github.io/lab-manual/
-  repo-url: https://github.com/thefaylab/lab-manual
+  site-url: https://gustavflorinaagren.github.io/econometric-lab/
+  repo-url: https://github.com/GustavFlorinAagren/econometric-lab
   repo-actions: [edit,issue]
 
   chapters: 
