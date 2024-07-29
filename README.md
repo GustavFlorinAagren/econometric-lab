@@ -1,12 +1,9 @@
 <p align="center"> 
-   :sparkles: Welcome to the Faylab Lab Manual! :sparkles: 
+   Welcome to Gustav's Econometric Laboratory! 
 </p>
 
 
-This ~~bookdown~~ Quarto book is intended to be used for **incoming, current, and outgoing** members of the Fay lab group. If we missed anything, please let Gavin Fay (gfay@umassd.edu) or Madeleine Guyant (mguyant@umassd.edu) know. You can also do a pull request and we will review the changes. 
-
-We hope this has all the answers you need!
-
+This portfolio will serve the purpose of storing some of the skills and knowledge I have in econometrics and statistics. I will be updating this portfolio as I learn new things and as I apply my knowledge to new projects.
 
 __Want to adapt the lab manual for your group?__ This [short tutorial](https://github.com/thefaylab/lab-manual/wiki/Quick-steps-to-making-a-copy-of-the-lab-manual-&-publishing-it) steps through how to make your own copy of the lab manual repository and set it up so that it automatically publishes the book to the web (and updates as you make changes).  
 
