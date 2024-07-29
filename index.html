@@ -72,7 +72,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -227,7 +226,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome"><span class="header-section-number">1</span> Welcome!</a></li>
+  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome"><span class="header-section-number">1</span> Welcome!</a>
+  <ul class="collapse">
+  <li><a href="#contents" id="toc-contents" class="nav-link" data-scroll-target="#contents"><span class="header-section-number">1.1</span> Contents</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/GustavFlorinAagren/econometric-lab/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/GustavFlorinAagren/econometric-lab/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -274,32 +276,18 @@ ul.task-list li input[type="checkbox"] {
 <h1 data-number="1"><span class="header-section-number">1</span> Welcome!</h1>
 <p>Welcome to my econometrics lab.</p>
 <p>This is a portfolio of my work in econometrics. The site will be updated as I continue to learn and grow in the field of econometrics. As of now, the site contains the following sections:</p>
+<section id="contents" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="contents"><span class="header-section-number">1.1</span> Contents</h2>
 <ul>
-<li><p><strong>Old school econometrics</strong>:</p>
-<p>&nbsp;Simple linear regression<br>
-&nbsp;Survival analysis<br>
-&nbsp;Selection correction<br>
-</p></li>
-<li><p><strong>Modern econometrics</strong> (causal inference):</p>
-<p>&nbsp;Difference-in-difference<br>
-&nbsp;Regression Discontiunity<br>
-&nbsp;Instrumental variable<br>
-&nbsp;Synthetic control<br>
-</p></li>
-<li><p><strong>Machine learning</strong><br>
-</p>
-<p>&nbsp;Regularisation (Ridge, lasso)<br>
-&nbsp;Tree-based methods (e.g.&nbsp;Random forest)<br>
-&nbsp;Support vector machine<br>
-</p></li>
+<li><a href="./Old-school-econometrics.html">Old School Econometrics</a></li>
+<li><a href="./Modern-econometrics.html">Modern Econometrics</a></li>
+<li><a href="./Machine-learning.html">Machine Learning</a></li>
 </ul>
-<p>Enjoy!</p>
-<p>The content for this website was developed as part of our group’s participation in the <a href="https://openscapes.org">Openscapes Champions program</a>.<br>
-</p>
 <hr>
 <p><a href="http://creativecommons.org/licenses/by/4.0/" data-fig-alt="Creative Commons License"><img src="img/creative_commons.png" class="img-fluid"></a>This lab is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License.</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

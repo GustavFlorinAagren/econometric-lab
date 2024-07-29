@@ -4,7 +4,17 @@
     "href": "index.html",
     "title": "Econometrics Lab",
     "section": "",
-    "text": "1 Welcome!\nWelcome to my econometrics lab.\nThis is a portfolio of my work in econometrics. The site will be updated as I continue to learn and grow in the field of econometrics. As of now, the site contains the following sections:\n\nOld school econometrics:\n Simple linear regression\n Survival analysis\n Selection correction\n\nModern econometrics (causal inference):\n Difference-in-difference\n Regression Discontiunity\n Instrumental variable\n Synthetic control\n\nMachine learning\n\n Regularisation (Ridge, lasso)\n Tree-based methods (e.g. Random forest)\n Support vector machine\n\n\nEnjoy!\nThe content for this website was developed as part of our group’s participation in the Openscapes Champions program.\n\n\nThis lab is licensed under a Creative Commons Attribution 4.0 International License.",
+    "text": "1 Welcome!\nWelcome to my econometrics lab.\nThis is a portfolio of my work in econometrics. The site will be updated as I continue to learn and grow in the field of econometrics. As of now, the site contains the following sections:",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Welcome!</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#contents",
+    "href": "index.html#contents",
+    "title": "Econometrics Lab",
+    "section": "1.1 Contents",
+    "text": "1.1 Contents\n\nOld School Econometrics\nModern Econometrics\nMachine Learning\n\n\nThis lab is licensed under a Creative Commons Attribution 4.0 International License.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Welcome!</span>"
     ]
